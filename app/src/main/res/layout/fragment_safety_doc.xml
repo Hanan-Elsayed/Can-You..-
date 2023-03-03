@@ -5,10 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".SafetyDocFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Safety Documentation Fragment"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:textSize="@dimen/_22ssp"
+        android:textColor="@color/prim_clr"/>
 </FrameLayout>
