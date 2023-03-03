@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="Beige">#C8B398</color>
     <color name="prim_clr">#52D4EA</color>
+    <color name="second_clr">#FFCA03</color>
 
 
 </resources>
