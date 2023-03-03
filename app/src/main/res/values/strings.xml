@@ -2,11 +2,12 @@
     <string name="app_name">Can You</string>
     //login signup
     <string name="login">Login</string>
-    <string name="Not_registered">Not yet registered? SignUp Now</string>
+    <string name="Not_registered">New User? SignUp Now</string>
     <string name="submit_btn">Submit</string>
     <string name="pass_hint">Password</string>
     <string name="email_hint">Email</string>
     <string name="signup_title">Here\'s Your First Step With Us!</string>
+    <string name="login_title">Welcome\n \t \t \t \t \t \t \t \t Back!</string>
     <string name="gender">Gender</string>
     <string name="male_gender">Male</string>
     <string name="female_gender">Female</string>

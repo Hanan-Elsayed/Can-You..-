@@ -155,7 +155,7 @@
 
         />
 
-     <EditText
+    <EditText
         android:id="@+id/pass"
         android:layout_width="@dimen/_270sdp"
         android:layout_height="@dimen/_30sdp"
