@@ -2,4 +2,17 @@
     <string name="app_name">Can You</string>
     <string name="login">Login</string>
     <string name="Not_registered">Not yet registered? SignUp Now</string>
+    <string name="submit_btn">Submit</string>
+    <string name="pass_hint">Password</string>
+    <string name="email_hint">Email</string>
+    <string name="signup_title">Here\'s Your First Step With Us!</string>
+    <string name="gender">Gender</string>
+    <string name="male_gender">Male</string>
+    <string name="female_gender">Female</string>
+    <string name="name_hint">Name</string>
+    <string name="national_id_hint">National ID</string>
+    <string name="phone_num_hint">Phone Number</string>
+    <string name="confirm_pass_hint">Confirm Password</string>
+    <string name="have_acc">I Have Account</string>
+    <string name="select_hint">Select City</string>
 </resources>

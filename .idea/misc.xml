@@ -4,9 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/su/semester 7/CanYou/app/src/main/res/drawable/custom_edittext.xml" value="0.1" />
+        <entry key="..\:/su/semester 7/CanYou/app/src/main/res/drawable/custom_round_button.xml" value="0.14" />
         <entry key="..\:/su/semester 7/CanYou/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.14" />
         <entry key="..\:/su/semester 7/CanYou/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/su/semester 7/CanYou/app/src/main/res/layout/activity_main.xml" value="0.11302083333333333" />
+        <entry key="..\:/su/semester 7/CanYou/app/src/main/res/layout/activity_signup.xml" value="0.24691358024691357" />
+        <entry key="..\:/su/semester 7/CanYou/app/src/main/res/layout/items_list.xml" value="0.253125" />
+        <entry key="..\:/su/semester 7/CanYou/app/src/main/res/layout/list_item.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
