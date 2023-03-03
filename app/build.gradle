@@ -47,6 +47,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.9'
     //material design implementation
     implementation 'com.google.android.material:material:1.8.0'
-
+    //circle image view implementation
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
 }

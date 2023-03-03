@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_159sdp"
+    android:gravity="bottom"
+    android:padding="@dimen/_15sdp"
+    android:background="@drawable/headerbkg"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:src="@drawable/profilepicex"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hanan El_sayed"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold|italic"
+        android:fontFamily="serif"
+        android:layout_marginBottom="@dimen/_2sdp"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nav_header"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12ssp"
+        android:layout_marginBottom="@dimen/_13sdp"
+        android:fontFamily="serif"
+        />
+</LinearLayout>
