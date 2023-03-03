@@ -8,8 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="Beige">#C8B398</color>
-    <color name="have_acc">#52D4EA</color>
-    <color name="form_background_clr">#22211F</color>
+    <color name="prim_clr">#52D4EA</color>
 
 
 </resources>
