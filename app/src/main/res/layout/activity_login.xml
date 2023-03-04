@@ -5,31 +5,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginbkg"
+    android:background="@drawable/loginbackground"
 
     tools:context=".LoginActivity">
+
+
     <TextView
         android:id="@+id/login_title_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_70sdp"
+        android:fontFamily="serif"
         android:padding="@dimen/_10sdp"
         android:text="@string/login_title"
         android:textColor="@color/white"
-        android:textSize="@dimen/_35ssp"
+        android:textSize="@dimen/_33ssp"
         android:textStyle="bold|italic"
-        android:layout_marginTop="@dimen/_68sdp"
-        android:layout_marginStart="@dimen/_3sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <LinearLayout
         android:id="@+id/login_linear_layout"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_10sdp"
         android:orientation="vertical"
         android:padding="@dimen/_20sdp"
@@ -42,7 +43,7 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
-            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_marginTop="@dimen/_30sdp"
             android:background="@drawable/custom_login_edittext"
             android:drawableLeft="@drawable/login_email"
             android:drawablePadding="@dimen/_8sdp"
@@ -72,23 +73,22 @@
             android:textColorHint="@color/gray"
             android:textStyle="bold|italic" />
 
-        <Button
-            android:id="@+id/loginButton"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:backgroundTint="@color/prim_clr"
-            android:fontFamily="serif"
-            android:text="@string/submit_btn"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_20ssp"
-            android:textStyle="bold|italic"
-            app:cornerRadius="@dimen/_40sdp" />
-    </LinearLayout>
 
+    </LinearLayout>
     <Button
-        android:id="@+id/signupText"
+        android:id="@+id/submit_login_btn"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:backgroundTint="@color/black"
+        android:drawableLeft="@drawable/ic_baseline_arrow_right_alt_24"
+        android:padding="@dimen/_10sdp"
+        app:cornerRadius="@dimen/_80sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_linear_layout" />
+    <Button
+        android:id="@+id/signup_Text_btn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:fontFamily="serif"
@@ -98,6 +98,7 @@
         android:textSize="@dimen/_14ssp"
         android:textStyle="bold|italic"
         app:cornerRadius="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_80sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_linear_layout"
         app:layout_constraintEnd_toEndOf="parent"

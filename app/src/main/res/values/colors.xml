@@ -7,9 +7,25 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="gray">#818185</color>
+    <color name="gray">#9C9C9E</color>
     <color name="prim_clr">#52D4EA</color>
     <color name="second_clr">#FFCA03</color>
-
-
+    <color name="slide_heading">#2948BD</color>
+   //dots active colors
+    <color name="dots_active_1">#2948BD</color>
+    <color name="dots_active_2">#2948BD</color>
+    <color name="dots_active_3">#2948BD</color>
+    //dots inactive colors
+    <color name="dots_inactive_1">#B6C0FE</color>
+    <color name="dots_inactive_2">#B6C0FE</color>
+    <color name="dots_inactive_3">#B6C0FE</color>
+    <array name="active">
+        <item>@color/dots_active_1</item>
+        <item>@color/dots_active_2</item>
+        <item>@color/dots_active_3</item>
+    </array><array name="inactive">
+        <item>@color/dots_inactive_1</item>
+        <item>@color/dots_inactive_2</item>
+        <item>@color/dots_inactive_3</item>
+    </array>
 </resources>

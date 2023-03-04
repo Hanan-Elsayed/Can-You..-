@@ -27,7 +27,6 @@
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_40sdp"
 
-        android:background="@drawable/custom_edittext"
         android:drawableStart="@drawable/ic_baseline_person_24"
         android:drawablePadding="@dimen/_9sdp"
         android:fontFamily="serif"
@@ -45,7 +44,6 @@
         android:layout_height="@dimen/_30sdp"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_4sdp"
-        android:background="@drawable/custom_edittext"
         android:drawableStart="@drawable/ic_baseline_email_24"
         android:drawablePadding="@dimen/_9sdp"
         android:fontFamily="serif"
@@ -64,7 +62,6 @@
         android:layout_height="@dimen/_30sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_4sdp"
-        android:background="@drawable/custom_edittext"
         android:drawableLeft="@drawable/ic_baseline_add_card_24"
         android:drawablePadding="@dimen/_9sdp"
         android:fontFamily="serif"
@@ -82,7 +79,6 @@
         android:layout_height="@dimen/_30sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_4sdp"
-        android:background="@drawable/custom_edittext"
         android:drawableLeft="@drawable/ic_baseline_phone_24"
         android:drawablePadding="@dimen/_9sdp"
         android:fontFamily="serif"
@@ -161,7 +157,6 @@
         android:layout_height="@dimen/_30sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_4sdp"
-        android:background="@drawable/custom_edittext"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:drawablePadding="@dimen/_9sdp"
         android:fontFamily="serif"
@@ -180,7 +175,6 @@
         android:layout_height="@dimen/_30sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_4sdp"
-        android:background="@drawable/custom_edittext"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:drawablePadding="@dimen/_9sdp"
         android:fontFamily="serif"
@@ -194,6 +188,7 @@
         app:layout_constraintTop_toBottomOf="@id/pass" />
 
     <Button
+        android:id="@+id/login_Text_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_20sdp"
@@ -209,7 +204,8 @@
         app:layout_constraintTop_toBottomOf="@id/confirm_pass" />
 
     <Button
-        android:id="@+id/submit_btn"
+        android:id="@+id/signup_submit_btn"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_20sdp"
