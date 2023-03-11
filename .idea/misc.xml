@@ -6,10 +6,12 @@
         <entry key="..\:/su/semester 7/CanYou/app/src/main/res/drawable/custom_edittext.xml" value="0.1" />
         <entry key="..\:/su/semester 7/CanYou/app/src/main/res/drawable/custom_login_edittext.xml" value="0.132" />
         <entry key="..\:/su/semester 7/CanYou/app/src/main/res/drawable/custom_round_button.xml" value="0.14" />
+        <entry key="..\:/su/semester 7/CanYou/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.148" />
         <entry key="..\:/su/semester 7/CanYou/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.14" />
         <entry key="..\:/su/semester 7/CanYou/app/src/main/res/layout/activity_login.xml" value="0.2" />
-        <entry key="..\:/su/semester 7/CanYou/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/su/semester 7/CanYou/app/src/main/res/layout/activity_main.xml" value="0.12631578947368421" />
         <entry key="..\:/su/semester 7/CanYou/app/src/main/res/layout/activity_signup.xml" value="0.264" />
+        <entry key="..\:/su/semester 7/CanYou/app/src/main/res/layout/activity_splash.xml" value="0.25416666666666665" />
         <entry key="..\:/su/semester 7/CanYou/app/src/main/res/layout/activity_welcome_slider.xml" value="0.25416666666666665" />
         <entry key="..\:/su/semester 7/CanYou/app/src/main/res/layout/fragment_about.xml" value="0.25416666666666665" />
         <entry key="..\:/su/semester 7/CanYou/app/src/main/res/layout/fragment_chats.xml" value="0.25416666666666665" />
@@ -18,6 +20,8 @@
         <entry key="..\:/su/semester 7/CanYou/app/src/main/res/layout/fragment_requests.xml" value="0.25416666666666665" />
         <entry key="..\:/su/semester 7/CanYou/app/src/main/res/layout/fragment_safety_doc.xml" value="0.25416666666666665" />
         <entry key="..\:/su/semester 7/CanYou/app/src/main/res/layout/fragment_settings.xml" value="0.25416666666666665" />
+        <entry key="..\:/su/semester 7/CanYou/app/src/main/res/layout/fragment_signup1.xml" value="0.25416666666666665" />
+        <entry key="..\:/su/semester 7/CanYou/app/src/main/res/layout/fragment_signup2.xml" value="0.24010416666666667" />
         <entry key="..\:/su/semester 7/CanYou/app/src/main/res/layout/items_list.xml" value="0.253125" />
         <entry key="..\:/su/semester 7/CanYou/app/src/main/res/layout/list_item.xml" value="0.25416666666666665" />
         <entry key="..\:/su/semester 7/CanYou/app/src/main/res/layout/nav_header.xml" value="0.253125" />

@@ -49,4 +49,5 @@
             android:textStyle="bold|italic"
             android:fontFamily="serif" />
 
-    </LinearLayout></LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -13,8 +13,8 @@
     <LinearLayout
         android:id="@+id/layoutDots"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_26sdp"
-        android:layout_marginBottom="@dimen/_15sdp"
+        android:layout_height="@dimen/_39sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent" />

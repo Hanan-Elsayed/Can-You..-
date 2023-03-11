@@ -1,6 +1,9 @@
 package com.example.canyou;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +23,7 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
      //   initializeDropDownMenu();
+        changeFragment(new  Signup1Fragment());
         onClicks();
 
     }
@@ -29,10 +33,12 @@ public class SignupActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //if (){
                 Intent intent=new Intent(SignupActivity.this,MainActivity.class);
                 startActivity(intent);
                 finish();
-            }
+          //  }
+        }
         });
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +49,14 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
     }
+    private void changeFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container, fragment);
+        fragmentTransaction.commit();
 
+
+    }
   /*  private void initializeDropDownMenu (){
          TextInputLayout textInputLayout;
          textInputLayout=findViewById(R.id.city_drop_down_menu);

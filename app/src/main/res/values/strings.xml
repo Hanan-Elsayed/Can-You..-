@@ -11,7 +11,7 @@
     <string name="gender">Gender</string>
     <string name="male_gender">Male</string>
     <string name="female_gender">Female</string>
-    <string name="name_hint">Name</string>
+    <string name="name_hint">Full Name</string>
     <string name="national_id_hint">National ID</string>
     <string name="phone_num_hint">Phone Number</string>
     <string name="confirm_pass_hint">Confirm Password</string>
@@ -32,9 +32,11 @@
     <string name="skip_btn">Skip</string>
     <string name="slide1_heading">Interactive</string>
     <string name="slide1_body_text">An interactive community that allows you to share your skills, assistance, and needs with others.</string>
- <string name="slide2_heading">easy-to-use</string>
+    <string name="slide2_heading">easy-to-use</string>
     <string name="slide2_body_text">It\'s an easy-to-use communication app that facilitates the requesting process and showing the services a person can provide.</string>
- <string name="slide3_heading">Volunteer Or Needy ?</string>
+    <string name="slide3_heading">Volunteer Or Needy ?</string>
     <string name="slide3_body_text">Whether you are a volunteer or needy, our community supports what you need to communicate with the other group and achieve your goal.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
