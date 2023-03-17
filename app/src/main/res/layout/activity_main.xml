@@ -13,19 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:id="@+id/toolbar"
-            android:background="@color/prim_clr"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            >
-
-
-
-
-        </androidx.appcompat.widget.Toolbar>
+        <include
+            layout="@layout/top_nav_bar"
+        />
 
         <FrameLayout
             android:layout_width="match_parent"

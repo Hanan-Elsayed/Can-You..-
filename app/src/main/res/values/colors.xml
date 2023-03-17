@@ -9,13 +9,13 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#9C9C9E</color>
     <color name="prim_clr">#52D4EA</color>
-    <color name="second_clr">#FFCA03</color>
+    <color name="second_clr">#2948BD</color>
     <color name="slide_heading">#2948BD</color>
-   //dots active colors
+<!--   dots active colors-->
     <color name="dots_active_1">#2948BD</color>
     <color name="dots_active_2">#2948BD</color>
     <color name="dots_active_3">#2948BD</color>
-    //dots inactive colors
+<!--    dots inactive colors-->
     <color name="dots_inactive_1">#B6C0FE</color>
     <color name="dots_inactive_2">#B6C0FE</color>
     <color name="dots_inactive_3">#B6C0FE</color>
@@ -28,4 +28,10 @@
         <item>@color/dots_inactive_2</item>
         <item>@color/dots_inactive_3</item>
     </array>
+    <color name="purple">#6124B1</color>
+    <color name="blue_green">#13B2C3</color>
+    <color name="dark_yellow">#E6A326</color>
+    <color name="dark_pink">#D95F69</color>
+    <color name="round_back_ground_clr">#26FFFFFF</color>
+
 </resources>

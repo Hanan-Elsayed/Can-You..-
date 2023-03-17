@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,28 +17,61 @@ import android.widget.TextView;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class SignupActivity extends AppCompatActivity {
-    private Button submitButton;
-    private Button loginButton;
+    private Button submitButton,loginButton;
+    private int[] layouts;
+    private ViewPager viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
      //   initializeDropDownMenu();
         changeFragment(new  Signup1Fragment());
-        onClicks();
+        viewPager = findViewById(R.id.viewPager);
+        submitButton=findViewById(R.id.signup_submit_btn);
+        loginButton=findViewById(R.id.login_Text_btn);
+        layouts = new int[]{
+                R.layout.fragment_signup1,
+                R.layout.fragment_signup2,
+
+        };
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int current = getItem(+1);
+                if (current < layouts.length) {
+                    viewPager.setCurrentItem(current);
+                } else {
+                    Intent intent=new Intent(SignupActivity.this,MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+
+            }
+        });
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(SignupActivity.this,LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
     }
-    private void onClicks(){
+        //onClicks();
+
+
+  /*  private void onClicks(){
         submitButton=findViewById(R.id.signup_submit_btn);
         loginButton=findViewById(R.id.login_Text_btn);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //if (){
                 Intent intent=new Intent(SignupActivity.this,MainActivity.class);
                 startActivity(intent);
                 finish();
-          //  }
+
         }
         });
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +82,7 @@ public class SignupActivity extends AppCompatActivity {
                 finish();
             }
         });
-    }
+    }*/
     private void changeFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -68,4 +102,8 @@ public class SignupActivity extends AppCompatActivity {
     autoCompleteTextView.setAdapter(cityAdapter);
     }
 */
+  private int getItem(int i) {
+      return viewPager.getCurrentItem() + 1;
+  }
+
 }

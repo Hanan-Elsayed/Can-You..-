@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Can You</string>
-    //login signup
+    <string name="app_title">Can You .. ?</string>
+<!--    login signup-->
     <string name="login">Login</string>
     <string name="Not_registered">New User? SignUp Now</string>
     <string name="submit_btn">Submit</string>
@@ -18,7 +19,7 @@
     <string name="confirm_pass_hint">Confirm Password</string>
     <string name="have_acc">I Have Account</string>
     <string name="select_hint">City</string>
-    // Navigation Drawer
+<!--     Navigation Drawer-->
     <string name="open_nav">Open Navigation Drawer</string>
     <string name="close_nav">Close Navigation Drawer</string>
     <string name="home">Home</string>
@@ -28,7 +29,7 @@
     <string name="requests">Requests</string>
     <string name="about">About Us</string>
     <string name="nav_header">See Your Profile</string>
-    // App Welcome Slider
+<!--     App Welcome Slider-->
     <string name="next_btn">Next</string>
     <string name="skip_btn">Skip</string>
     <string name="slide1_heading">Interactive</string>
@@ -39,5 +40,13 @@
     <string name="slide3_body_text">Whether you are a volunteer or needy, our community supports what you need to communicate with the other group and achieve your goal.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+<!--    settings fragment-->
+    <string name="edit_btn">Edit Profile</string>
+    <string name="night_mode">Night Mode</string>
+    <string name="security">Security &amp; Privacy</string>
+    <string name="faqs">FAQs</string>
+    <string name="logout">Logout</string>
+
 
 </resources>

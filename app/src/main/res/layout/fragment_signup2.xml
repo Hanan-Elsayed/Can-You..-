@@ -9,6 +9,40 @@
     tools:context=".Signup2Fragment"
     android:padding="@dimen/_15sdp">
 
+    <TextView
+        android:id="@+id/gender_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15ssp"
+        android:text="@string/gender"
+        android:layout_marginLeft="@dimen/_2sdp"
+        />
+    <RadioGroup
+        android:id="@+id/gender_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/_2sdp"
+
+        >
+        <com.google.android.material.radiobutton.MaterialRadioButton
+
+            android:id="@+id/male_radio_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/male_gender"
+
+            />
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/female_radio_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:fontFamily="serif"
+            android:text="@string/female_gender"
+            />
+    </RadioGroup>
     <com.google.android.material.textfield.TextInputLayout
 
         android:id="@+id/pass"
