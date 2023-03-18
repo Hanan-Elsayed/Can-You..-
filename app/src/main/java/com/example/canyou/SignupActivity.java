@@ -18,51 +18,20 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class SignupActivity extends AppCompatActivity {
     private Button submitButton,loginButton;
-    private int[] layouts;
-    private ViewPager viewPager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
      //   initializeDropDownMenu();
-        changeFragment(new  Signup1Fragment());
-        viewPager = findViewById(R.id.viewPager);
-        submitButton=findViewById(R.id.signup_submit_btn);
-        loginButton=findViewById(R.id.login_Text_btn);
-        layouts = new int[]{
-                R.layout.fragment_signup1,
-                R.layout.fragment_signup2,
-
-        };
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int current = getItem(+1);
-                if (current < layouts.length) {
-                    viewPager.setCurrentItem(current);
-                } else {
-                    Intent intent=new Intent(SignupActivity.this,MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-
-            }
-        });
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(SignupActivity.this,LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        onClicks();
 
     }
-        //onClicks();
 
 
-  /*  private void onClicks(){
+
+  private void onClicks(){
         submitButton=findViewById(R.id.signup_submit_btn);
         loginButton=findViewById(R.id.login_Text_btn);
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -82,15 +51,8 @@ public class SignupActivity extends AppCompatActivity {
                 finish();
             }
         });
-    }*/
-    private void changeFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container, fragment);
-        fragmentTransaction.commit();
-
-
     }
+
   /*  private void initializeDropDownMenu (){
          TextInputLayout textInputLayout;
          textInputLayout=findViewById(R.id.city_drop_down_menu);
@@ -102,8 +64,5 @@ public class SignupActivity extends AppCompatActivity {
     autoCompleteTextView.setAdapter(cityAdapter);
     }
 */
-  private int getItem(int i) {
-      return viewPager.getCurrentItem() + 1;
-  }
 
 }
