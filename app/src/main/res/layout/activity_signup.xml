@@ -83,6 +83,7 @@
                 android:hint="@string/national_id_hint"
                 app:counterEnabled="true"
                 app:counterMaxLength="14"
+                android:layout_marginTop="@dimen/_10sdp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 >
 
@@ -119,6 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/phone_num_hint"
+                android:layout_marginTop="@dimen/_10sdp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 >
 
@@ -136,6 +138,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/select_hint"
+                android:layout_marginTop="@dimen/_10sdp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 >
 
@@ -209,6 +212,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/confirm_pass_hint"
                 app:passwordToggleEnabled="true"
+                android:layout_marginTop="@dimen/_10sdp"
+
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 >
 
@@ -238,7 +243,7 @@
                     android:padding="@dimen/_8sdp"
                     android:text="@string/have_acc"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_10ssp"
+                    android:textSize="@dimen/_14ssp"
                     android:textStyle="bold|italic"
 
                     />
@@ -248,7 +253,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_19sdp"
-                    android:layout_marginStart="@dimen/_80sdp"
+                    android:layout_marginStart="@dimen/_52sdp"
                     android:backgroundTint="@color/black"
                     android:drawableLeft="@drawable/ic_baseline_arrow_right_alt_24"
                     android:padding="@dimen/_10sdp"

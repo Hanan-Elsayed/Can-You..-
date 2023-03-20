@@ -33,6 +33,7 @@
         android:padding="@dimen/_12sdp"
 
         />
+</RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -46,8 +47,8 @@
 
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_80sdp"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_50sdp"
                 android:src="@drawable/profilepicex" />
@@ -61,13 +62,13 @@
                 android:fontFamily="serif"
                 android:text="Hanan Elsayed"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_16ssp"
+                android:textSize="@dimen/_18ssp"
                 android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/edit_btn"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_36sdp"
+                android:layout_height="@dimen/_38sdp"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:background="@drawable/round_btn"
@@ -319,5 +320,4 @@
 
     </ScrollView>
 
-</RelativeLayout>
 </LinearLayout>

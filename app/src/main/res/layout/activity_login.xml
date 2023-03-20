@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginbackground"
+    android:background="@color/white"
 
     tools:context=".LoginActivity">
 
@@ -14,11 +14,12 @@
         android:id="@+id/login_title_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_70sdp"
+        android:layout_marginTop="@dimen/_45sdp"
+        android:layout_marginStart="@dimen/_20sdp"
         android:fontFamily="serif"
         android:padding="@dimen/_10sdp"
         android:text="@string/login_title"
-        android:textColor="@color/white"
+        android:textColor="@color/prim_clr"
         android:textSize="@dimen/_33ssp"
         android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,48 +31,54 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_65sdp"
         android:layout_marginEnd="@dimen/_10sdp"
         android:orientation="vertical"
         android:padding="@dimen/_20sdp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_title_TV">
+        app:layout_constraintTop_toBottomOf="@id/login_title_TV"
 
 
+        >
 
-        <EditText
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/email"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginTop="@dimen/_45sdp"
-            android:background="@drawable/custom_login_edittext"
-            android:drawableLeft="@drawable/login_email"
-            android:drawablePadding="@dimen/_8sdp"
-            android:fontFamily="serif"
+            android:layout_height="wrap_content"
             android:hint="@string/email_hint"
-            android:inputType="textEmailAddress"
-            android:padding="@dimen/_8sdp"
-            android:textColor="@color/black"
-            android:textColorHighlight="@color/cardview_light_background"
-            android:textColorHint="@color/gray"
-            android:textStyle="bold|italic" />
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            >
 
-        <EditText
-            android:id="@+id/password"
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:drawableStart="@drawable/ic_baseline_email_24"
+                android:drawablePadding="@dimen/_9sdp"
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:id="@+id/pass"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:background="@drawable/custom_login_edittext"
-            android:drawableLeft="@drawable/login_lock"
-            android:drawablePadding="@dimen/_8sdp"
-            android:fontFamily="serif"
+            android:layout_height="wrap_content"
             android:hint="@string/pass_hint"
-            android:inputType="textPassword"
-            android:padding="@dimen/_8sdp"
-            android:textColor="@color/black"
-            android:textColorHighlight="@color/cardview_light_background"
-            android:textColorHint="@color/gray"
-            android:textStyle="bold|italic" />
+            app:passwordToggleEnabled="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+
+
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
     </LinearLayout>
@@ -80,6 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_35sdp"
         android:backgroundTint="@color/black"
         android:drawableLeft="@drawable/ic_baseline_arrow_right_alt_24"
         android:padding="@dimen/_10sdp"
@@ -102,5 +110,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_linear_layout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
