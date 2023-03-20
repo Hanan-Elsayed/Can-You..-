@@ -1,6 +1,4 @@
-package com.example.canyou;
-
-import static android.text.Html.FROM_HTML_MODE_LEGACY;
+package com.example.canyou.UI;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,17 +7,16 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.canyou.IntroPref;
+import com.example.canyou.R;
 
 public class WelcomeSliderActivity extends AppCompatActivity {
     private TextView tvNext, tvSkip;

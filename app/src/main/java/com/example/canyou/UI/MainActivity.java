@@ -1,4 +1,4 @@
-package com.example.canyou;
+package com.example.canyou.UI;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -13,9 +13,8 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
+import com.example.canyou.R;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -75,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 changeFragment(new AboutFragment());
                 break;
             case R.id.nav_logout:
-                Intent intent= new Intent(this,LoginActivity.class);
+                Intent intent= new Intent(this, LoginActivity.class);
                 startActivity(intent);
                 finish();
                 break;

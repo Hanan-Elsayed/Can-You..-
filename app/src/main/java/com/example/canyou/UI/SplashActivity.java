@@ -1,9 +1,11 @@
-package com.example.canyou;
+package com.example.canyou.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.WindowManager;
+
+import com.example.canyou.R;
 
 public class SplashActivity extends AppCompatActivity {
 

@@ -1,20 +1,13 @@
-package com.example.canyou;
+package com.example.canyou.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.TextView;
 
-import com.google.android.material.textfield.TextInputLayout;
+import com.example.canyou.R;
 
 public class SignupActivity extends AppCompatActivity {
     private Button submitButton,loginButton;
@@ -37,7 +30,7 @@ public class SignupActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(SignupActivity.this,MainActivity.class);
+                Intent intent=new Intent(SignupActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
 
@@ -46,7 +39,7 @@ public class SignupActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(SignupActivity.this,LoginActivity.class);
+                Intent intent=new Intent(SignupActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
