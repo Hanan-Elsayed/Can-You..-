@@ -15,22 +15,15 @@ public class SignupActivity extends AppCompatActivity {
 //    private Button submitButton,loginButton;
 String [] cities=  {"Alexandria","Assiut", "Aswan" ,"Beheira","Bani Suef","Cairo","Daqahliya","Damietta","Fayyoum", "Gharbiya","Giza","Helwan","Ismailia","Kafr El Sheikh","Luxor","Marsa Matrouh", "Minya", "Monofiya","New Valley", "North Sinai","Port Said","Qalioubiya","Qena","Red Sea","Sharqiya","Sohag","South Sinai","Suez","Tanta"};
     ArrayAdapter<String> adapterCities;
-
+   private ActivitySignupBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
      //   onClicks();
-        ActivitySignupBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_signup);
-        adapterCities = new ArrayAdapter<String>(this,R.layout.list_city,cities);
-        binding.autoCompleteTxt.setAdapter(adapterCities);
-        binding.autoCompleteTxt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String city = parent.getItemAtPosition(position).toString();
+         binding = DataBindingUtil.setContentView(this,R.layout.activity_signup);
+        initializeDropDownMenu();
 
-            }
-        });
     }
 
 
@@ -56,8 +49,22 @@ String [] cities=  {"Alexandria","Assiut", "Aswan" ,"Beheira","Bani Suef","Cairo
 //            }
 //        });
 //    }
+    private void initializeDropDownMenu(){
+        adapterCities = new ArrayAdapter<String>(this,R.layout.list_city,cities);
+        binding.autoCompleteTxt.setAdapter(adapterCities);
+        binding.autoCompleteTxt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String city = parent.getItemAtPosition(position).toString();
 
+            }
+        });
+    }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        binding=null;
+    }
 
 }
