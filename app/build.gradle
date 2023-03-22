@@ -51,9 +51,13 @@ dependencies {
     //retrofit implementation
     implementation"com.squareup.retrofit2:retrofit:2.9.0"
     //Retrofit Converter which uses Gson for serialization to and from JSON.
-    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     //Gson implementation
     implementation 'com.google.code.gson:gson:2.8.9'
+    //logging interceptor
+    implementation("com.squareup.okhttp3:logging-interceptor:4.7.2")
+
+
     //material design implementation
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'com.google.android.material:material:1.4.0'
@@ -64,7 +68,7 @@ dependencies {
 
 
     //view model and live data
-    def lifecycle_version = "2.1.0"
+    def lifecycle_version = "2.2.0"
 implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 
 }
