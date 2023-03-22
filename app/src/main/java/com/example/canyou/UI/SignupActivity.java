@@ -1,61 +1,63 @@
 package com.example.canyou.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 
 import com.example.canyou.R;
+import com.example.canyou.databinding.ActivitySignupBinding;
 
 public class SignupActivity extends AppCompatActivity {
-    private Button submitButton,loginButton;
+//    private Button submitButton,loginButton;
+String [] cities=  {"Alexandria","Assiut", "Aswan" ,"Beheira","Bani Suef","Cairo","Daqahliya","Damietta","Fayyoum", "Gharbiya","Giza","Helwan","Ismailia","Kafr El Sheikh","Luxor","Marsa Matrouh", "Minya", "Monofiya","New Valley", "North Sinai","Port Said","Qalioubiya","Qena","Red Sea","Sharqiya","Sohag","South Sinai","Suez","Tanta"};
+    ArrayAdapter<String> adapterCities;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
-     //   initializeDropDownMenu();
-        onClicks();
-
-    }
-
-
-
-  private void onClicks(){
-        submitButton=findViewById(R.id.signup_submit_btn);
-        loginButton=findViewById(R.id.login_Text_btn);
-        submitButton.setOnClickListener(new View.OnClickListener() {
+     //   onClicks();
+        ActivitySignupBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_signup);
+        adapterCities = new ArrayAdapter<String>(this,R.layout.list_city,cities);
+        binding.autoCompleteTxt.setAdapter(adapterCities);
+        binding.autoCompleteTxt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(SignupActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String city = parent.getItemAtPosition(position).toString();
 
-        }
-        });
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(SignupActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
             }
         });
     }
 
-  /*  private void initializeDropDownMenu (){
-         TextInputLayout textInputLayout;
-         textInputLayout=findViewById(R.id.city_drop_down_menu);
-         AutoCompleteTextView autoCompleteTextView;
-         autoCompleteTextView=findViewById(R.id.cities);
 
-    String [] cities=  {"Alexandria","Assiut", "Aswan" ,"Beheira","Bani Suef","Cairo","Daqahliya","Damietta","Fayyoum", "Gharbiya","Giza","Helwan","Ismailia","Kafr El Sheikh","Luxor","Marsa Matrouh", "Minya", "Monofiya","New Valley", "North Sinai","Port Said","Qalioubiya","Qena","Red Sea","Sharqiya","Sohag","South Sinai","Suez","Tanta"};
-    ArrayAdapter<String> cityAdapter=new ArrayAdapter<>(SignupActivity.this, R.layout.items_list,cities);
-    autoCompleteTextView.setAdapter(cityAdapter);
-    }
-*/
+
+//  private void onClicks(){
+//        submitButton=findViewById(R.id.signup_submit_btn);
+//        loginButton=findViewById(R.id.login_Text_btn);
+//        submitButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent=new Intent(SignupActivity.this, MainActivity.class);
+//                startActivity(intent);
+//                finish();
+//
+//        }
+//        });
+//        loginButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent=new Intent(SignupActivity.this, LoginActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+//    }
+
+
+
 
 }

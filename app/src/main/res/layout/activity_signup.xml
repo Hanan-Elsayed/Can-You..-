@@ -134,21 +134,22 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
                     android:id="@+id/city_drop_down_menu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/select_hint"
                     android:layout_marginTop="@dimen/_10sdp"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
+                   >
+                    <AutoCompleteTextView
                         android:layout_height="wrap_content"
-                        android:inputType="text"
-                        android:drawableLeft="@drawable/ic_baseline_location_on_24"
-                        android:drawablePadding="@dimen/_9sdp" />
+                        android:layout_width="match_parent"
+                        android:inputType="none"
+                        android:id="@+id/auto_complete_txt"
+
+                        />
                 </com.google.android.material.textfield.TextInputLayout>
+
 
                 <TextView
                     android:id="@+id/gender_TV"
