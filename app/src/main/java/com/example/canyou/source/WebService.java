@@ -12,5 +12,5 @@ public interface WebService {
     @POST("login")
     Call<LoginResponse> loginUser(@Body LoginRequest loginRequest);
 @POST("register")
-    Call<SignUpResponse> registerUsers(@Body SignUpRequest signUpRequest);
+    Call<SignUpResponse> registerUser(@Body SignUpRequest signUpRequest);
 }
