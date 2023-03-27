@@ -2,7 +2,7 @@ package com.example.canyou.pojo;
 
 import com.google.gson.annotations.SerializedName;
 
-public class SignUpResponse{
+public class LoginResponse{
 
 	@SerializedName("user")
 	private User user;
