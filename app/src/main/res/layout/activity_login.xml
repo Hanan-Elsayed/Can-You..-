@@ -1,115 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    tools:context=".UI.LoginActivity">
+    <data>
 
+    </data>
 
-    <TextView
-        android:id="@+id/login_title_TV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_45sdp"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:fontFamily="serif"
-        android:padding="@dimen/_10sdp"
-        android:text="@string/login_title"
-        android:textColor="@color/prim_clr"
-        android:textSize="@dimen/_33ssp"
-        android:textStyle="bold|italic"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/login_linear_layout"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_65sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:orientation="vertical"
-        android:padding="@dimen/_20sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_title_TV"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+
+        tools:context=".UI.LoginActivity">
 
 
-        >
+        <TextView
+            android:id="@+id/login_title_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_45sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:fontFamily="serif"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/login_title"
+            android:textColor="@color/prim_clr"
+            android:textSize="@dimen/_33ssp"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/email"
+        <LinearLayout
+            android:id="@+id/login_linear_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/email_hint"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_65sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:orientation="vertical"
+            android:padding="@dimen/_20sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/login_title_TV"
+
+
             >
 
-            <com.google.android.material.textfield.TextInputEditText
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:drawableStart="@drawable/ic_baseline_email_24"
-                android:drawablePadding="@dimen/_9sdp"
+                android:hint="@string/email_hint"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
-                />
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:drawableStart="@drawable/ic_baseline_email_24"
+                    android:drawablePadding="@dimen/_9sdp"
 
-        <com.google.android.material.textfield.TextInputLayout
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            android:id="@+id/pass"
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/pass_hint"
+                app:passwordToggleEnabled="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+
+
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/submit_login_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:backgroundTint="@color/black"
+            android:drawableLeft="@drawable/ic_baseline_arrow_right_alt_24"
+            android:padding="@dimen/_10sdp"
+            app:cornerRadius="@dimen/_80sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/login_linear_layout" />
+
+        <Button
+            android:id="@+id/signup_Text_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/pass_hint"
-            app:passwordToggleEnabled="true"
-            android:layout_marginTop="@dimen/_10sdp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-            >
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-
-
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-    </LinearLayout>
-    <Button
-        android:id="@+id/submit_login_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_35sdp"
-        android:backgroundTint="@color/black"
-        android:drawableLeft="@drawable/ic_baseline_arrow_right_alt_24"
-        android:padding="@dimen/_10sdp"
-        app:cornerRadius="@dimen/_80sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_linear_layout" />
-    <Button
-        android:id="@+id/signup_Text_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:fontFamily="serif"
-        android:text="@string/Not_registered"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_14ssp"
-        android:textStyle="bold|italic"
-        app:cornerRadius="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_88sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_linear_layout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:background="@android:color/transparent"
+            android:fontFamily="serif"
+            android:text="@string/Not_registered"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold|italic"
+            app:cornerRadius="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_88sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/login_linear_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
