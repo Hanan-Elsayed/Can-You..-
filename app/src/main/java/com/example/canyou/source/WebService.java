@@ -9,8 +9,8 @@ import retrofit2.http.Body;
 import retrofit2.Call;
 
 public interface WebService {
-    @POST("login")
+    @POST("auth/login")
     Call<LoginResponse> loginUser(@Body LoginRequest loginRequest);
-@POST("register")
+@POST("auth/register")
     Call<SignUpResponse> registerUser(@Body SignUpRequest signUpRequest);
 }

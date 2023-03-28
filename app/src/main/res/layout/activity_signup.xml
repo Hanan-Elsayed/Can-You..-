@@ -247,7 +247,7 @@
                         android:layout_marginTop="@dimen/_19sdp"
                         android:layout_marginStart="@dimen/_52sdp"
                         android:backgroundTint="@color/black"
-                        android:drawableStart="@drawable/ic_baseline_arrow_right_alt_24"
+                        android:drawableLeft="@drawable/ic_baseline_arrow_right_alt_24"
                         android:padding="@dimen/_10sdp"
                         app:cornerRadius="@dimen/_80sdp"
 
