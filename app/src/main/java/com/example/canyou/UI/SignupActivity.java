@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.canyou.R;
@@ -77,7 +78,11 @@ public void registerUser(SignUpRequest signUpRequest){
     });
 }
 
-
+public RadioButton getGenderValue(){
+        int radioBtnSelectedId=binding.genderRadioGroup.getCheckedRadioButtonId();
+        RadioButton radioButton=findViewById(radioBtnSelectedId);
+        return radioButton;
+}
   private void onClicks(){
    binding.signupSubmitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +91,10 @@ public void registerUser(SignUpRequest signUpRequest){
                 if (TextUtils.isEmpty(binding.nameET.getText().toString())&&
                         TextUtils.isEmpty(binding.emailET.getText().toString())&&
                         TextUtils.isEmpty(binding.nationalIdET.getText().toString())&&
+                        TextUtils.isEmpty(binding.dateOfBirthET.getText().toString())&&
                         TextUtils.isEmpty(binding.phoneNumET.getText().toString())&&
+                        TextUtils.isEmpty(binding.autoCompleteTxt.getText().toString())&&
+                        TextUtils.isEmpty(getGenderValue().getText().toString())&&
                         TextUtils.isEmpty(binding.passET.getText().toString())&&
                         TextUtils.isEmpty(binding.confirmPassET.getText().toString()))
                 {
@@ -97,8 +105,11 @@ public void registerUser(SignUpRequest signUpRequest){
                     signUpRequest.setFullName(binding.nameET.getText().toString());
                     signUpRequest.setEmail(binding.emailET.getText().toString());
                     signUpRequest.setNationalID(binding.nationalIdET.getText().toString());
+                    signUpRequest.setBirthDay(binding.dateOfBirthET.getText().toString());
                     signUpRequest.setPhoneNumber(binding.phoneNumET.getText().toString());
-                    signUpRequest.setPassword(binding.passET.getText().toString());
+                    signUpRequest.setCity(binding.autoCompleteTxt.getText().toString());
+                    signUpRequest.setCity(binding.autoCompleteTxt.getText().toString());
+                    signUpRequest.setGender(getGenderValue().getText().toString());
                     signUpRequest.setConfirmPassword(binding.confirmPassET.getText().toString());
                     registerUser(signUpRequest);
                 }
@@ -122,6 +133,7 @@ public void registerUser(SignUpRequest signUpRequest){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String city = parent.getItemAtPosition(position).toString();
+                binding.autoCompleteTxt.setText(city);
 
             }
         });

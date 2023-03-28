@@ -70,7 +70,7 @@
                     android:hint="@string/national_id_hint"
                     app:counterEnabled="true"
                     app:counterMaxLength="14"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/national_id_ET"
@@ -98,7 +98,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/phone_num_hint"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="11"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -115,7 +117,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/select_hint"
-                    android:layout_marginTop="@dimen/_10sdp">
+                   >
                     <AutoCompleteTextView
                         android:id="@+id/auto_complete_txt"
                         android:layout_height="wrap_content"
@@ -149,6 +151,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/male_gender"
+                        android:drawableStart="@drawable/baseline_male_24"
+                        android:drawablePadding="@dimen/_3sdp"
 
                         />
 
@@ -158,7 +162,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_20sdp"
                         android:fontFamily="serif"
-                        android:text="@string/female_gender" />
+                        android:text="@string/female_gender"
+                        android:drawableStart="@drawable/baseline_female_24"
+                        android:drawablePadding="@dimen/_3sdp"/>
                 </RadioGroup>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -186,7 +192,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/confirm_pass_hint"
                     app:passwordToggleEnabled="true"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
 
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
