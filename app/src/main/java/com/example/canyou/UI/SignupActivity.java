@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 import com.example.canyou.R;
@@ -75,7 +76,16 @@ public void registerUser(SignUpRequest signUpRequest){
 }
     String gender ;
 public String getGenderValue(){
+    int checkedId=binding.genderRadioGroup.getCheckedRadioButtonId();
+    if (checkedId==R.id.male_radio_btn){
 
+        gender ="male";
+
+    }
+    else if (checkedId==R.id.female_radio_btn)
+    {
+        gender ="female";
+    }
     binding.genderRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -88,9 +98,7 @@ public String getGenderValue(){
                 else if (checkedId==R.id.female_radio_btn)
                 {
                     gender ="female";
-                }else {
-                    gender=null;
-            }
+                }
             }
 
     });
@@ -245,7 +253,6 @@ private boolean validateEmail() {
             binding.genderTIL.setError("Field cannot be empty");
             return false;
         } else {
-
             binding.genderTIL.setError(null);
             binding.genderTIL.setErrorEnabled(false);
             return true;
