@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.canyou.R;
@@ -77,42 +78,225 @@ public void registerUser(SignUpRequest signUpRequest){
         }
     });
 }
+    String gender ;
+public String getGenderValue(){
 
-public RadioButton getGenderValue(){
-        int radioBtnSelectedId=binding.genderRadioGroup.getCheckedRadioButtonId();
-        RadioButton radioButton=findViewById(radioBtnSelectedId);
-        return radioButton;
+    binding.genderRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+            if (checkedId==R.id.male_radio_btn){
+
+                gender ="male";
+
+                }
+                else if (checkedId==R.id.female_radio_btn)
+                {
+                    gender ="female";
+                }else {
+                    gender=null;
+            }
+            }
+
+    });
+    return gender;
 }
+    //validation
+private boolean validateName(){
+String val =binding.nameTIL.getEditText().getText().toString();
+if (val.isEmpty())
+{
+    binding.nameTIL.setError("Field cannot be empty");
+    return false;
+}else if (val.length()>30){
+    binding.nameTIL.setError("name is too long");
+    return false;
+}
+else {
+    binding.nameTIL.setError(null);
+    binding.nameTIL.setErrorEnabled(false);
+    return true;
+}
+}
+private boolean validateEmail() {
+        String val = binding.emailTIL.getEditText().getText().toString();
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        if (val.isEmpty()) {
+            binding.emailTIL.setError("Field cannot be empty");
+            return false;
+        } else if (!val.matches(emailPattern)) {
+            binding.emailTIL.setError("Invalid email address");
+            return false;
+        }  else {
+            binding.emailTIL.setError(null);
+            binding.emailTIL.setErrorEnabled(false);
+            return true;
+        }
+    }
+    private boolean validatePhoneNumber(){
+        String val =binding.phoneNumTIL.getEditText().getText().toString();
+        String noWhiteSpace = "\\A\\w{4,20}\\z";
+        boolean flag=false;
+        for (char ch: val.toCharArray()) {
+            if (!Character.isDigit(ch)) {
+                flag = true;
+                break;
+            }
+        }
+        if (val.isEmpty())
+        {
+            binding.phoneNumTIL.setError("Field cannot be empty");
+            return false;
+        }else if (!(val.length()==11)){
+            binding.phoneNumTIL.setError("Phone number must be 11 digit");
+            return false;
+        }else if (flag) {
+            binding.phoneNumTIL.setError("Enter digits only");
+            flag=false;
+            return false;}
+        else if (!val.matches(noWhiteSpace)) {
+            binding.phoneNumTIL.setError("White Spaces are not allowed");
+            return false;
+        }
+        else {
+            binding.phoneNumTIL.setError(null);
+            binding.phoneNumTIL.setErrorEnabled(false);
+            return true;
+        }
+    }
+    private boolean validateNationalId(){
+        String val =binding.nationalIdTIL.getEditText().getText().toString();
+        String noWhiteSpace = "\\A\\w{4,20}\\z";
+        boolean flag=false;
+        for (char ch: val.toCharArray()) {
+            if (!Character.isDigit(ch)) {
+                flag = true;
+                break;
+            }
+        }
+        if (val.isEmpty())
+        {
+            binding.nationalIdTIL.setError("Field cannot be empty");
+            return false;
+        }else if (!(val.length()==14)){
+            binding.nationalIdTIL.setError("National ID must be 14 digit");
+            return false;
+        } else if (flag) {
+            binding.nationalIdTIL.setError("Enter digits only");
+            flag=false;
+            return false;}
+        else if (!val.matches(noWhiteSpace)) {
+            binding.nationalIdTIL.setError("White Spaces are not allowed");
+            return false;
+        }
+        else {
+            binding.nationalIdTIL.setError(null);
+            binding.nationalIdTIL.setErrorEnabled(false);
+            return true;
+        }
+    }
+    private boolean validatePassword() {
+        String val = binding.passTIL.getEditText().getText().toString();
+        String passwordVal = "^" +
+                //"(?=.*[0-9])" +         //at least 1 digit
+                //"(?=.*[a-z])" +         //at least 1 lower case letter
+                //"(?=.*[A-Z])" +         //at least 1 upper case letter
+                "(?=.*[a-zA-Z])" +      //any letter
+   //             "(?=.*[@#$%^&+=])" +    //at least 1 special character
+        //        "(?=\\S+$)" +           //no white spaces
+                ".{5,}" +               //at least 5 characters
+                "$";
+
+        if (val.isEmpty()) {
+            binding.passTIL.setError("Field cannot be empty");
+            return false;
+        }  else if (!val.matches(passwordVal)) {
+            binding.passTIL.setError("Password is too weak");
+            return false;
+        } else {
+            binding.passTIL.setError(null);
+            binding.passTIL.setErrorEnabled(false);
+            return true;
+        }
+    }
+    private boolean validateCity() {
+        String val = binding.cityDropDownMenu.getEditText().getText().toString();
+
+        if (val.isEmpty()) {
+            binding.cityDropDownMenu.setError("Field cannot be empty");
+            return false;
+        } else {
+            binding.cityDropDownMenu.setError(null);
+            binding.cityDropDownMenu.setErrorEnabled(false);
+            return true;
+        }
+    }
+    private boolean validateDateOfBirth() {
+        String val = binding.dateOfBirth.getEditText().getText().toString();
+
+        if (val.isEmpty()) {
+            binding.dateOfBirth.setError("Field cannot be empty");
+            return false;
+        } else {
+            binding.dateOfBirth.setError(null);
+            binding.dateOfBirth.setErrorEnabled(false);
+            return true;
+        }
+    }
+    private boolean validateGender() {
+        String val = getGenderValue();
+
+        if (val==null) {
+            binding.genderTIL.setError("Field cannot be empty");
+            return false;
+        } else {
+
+            binding.genderTIL.setError(null);
+            binding.genderTIL.setErrorEnabled(false);
+            return true;
+        }
+    }
+    private boolean validateConfirmPassword(){
+        String confirmPass =binding.confirmPassTIL.getEditText().getText().toString();
+        String pass =binding.passTIL.getEditText().getText().toString();
+        if (confirmPass.isEmpty())
+        {
+            binding.confirmPassTIL.setError("Field cannot be empty");
+            return false;
+        }else if(!(confirmPass.equals(pass))){
+
+            binding.confirmPassTIL.setError("Those passwords didn’t match. Try again");
+            return false;
+        }else {
+            binding.confirmPassTIL.setError(null);
+            binding.confirmPassTIL.setErrorEnabled(false);
+            return true;
+        }
+    }
+
   private void onClicks(){
    binding.signupSubmitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //validation
-                if (TextUtils.isEmpty(binding.nameET.getText().toString())&&
-                        TextUtils.isEmpty(binding.emailET.getText().toString())&&
-                        TextUtils.isEmpty(binding.nationalIdET.getText().toString())&&
-                        TextUtils.isEmpty(binding.dateOfBirthET.getText().toString())&&
-                        TextUtils.isEmpty(binding.phoneNumET.getText().toString())&&
-                        TextUtils.isEmpty(binding.autoCompleteTxt.getText().toString())&&
-                        TextUtils.isEmpty(getGenderValue().getText().toString())&&
-                        TextUtils.isEmpty(binding.passET.getText().toString())&&
-                        TextUtils.isEmpty(binding.confirmPassET.getText().toString()))
+                if(!validateName() |!validatePassword() | !validatePhoneNumber() |
+                        !validateEmail() | !validateNationalId()| !validateDateOfBirth()|
+                        !validateGender()| !validateConfirmPassword()| !validateCity())
                 {
-                    String message ="All Fields is required... ";
-                    toastMessage( message ) ;
-                }else {
-                    SignUpRequest signUpRequest = new SignUpRequest();
-                    signUpRequest.setFullName(binding.nameET.getText().toString());
-                    signUpRequest.setEmail(binding.emailET.getText().toString());
-                    signUpRequest.setNationalID(binding.nationalIdET.getText().toString());
-                    signUpRequest.setBirthDay(binding.dateOfBirthET.getText().toString());
-                    signUpRequest.setPhoneNumber(binding.phoneNumET.getText().toString());
-                    signUpRequest.setCity(binding.autoCompleteTxt.getText().toString());
-                    signUpRequest.setCity(binding.autoCompleteTxt.getText().toString());
-                    signUpRequest.setGender(getGenderValue().getText().toString());
-                    signUpRequest.setConfirmPassword(binding.confirmPassET.getText().toString());
-                    registerUser(signUpRequest);
+                    return;
                 }
+                SignUpRequest signUpRequest = new SignUpRequest();
+                    signUpRequest.setFullName(binding.nameTIL.getEditText().getText().toString());
+                    signUpRequest.setEmail(binding.emailTIL.getEditText().getText().toString());
+                    signUpRequest.setNationalID(binding.nationalIdTIL.getEditText().getText().toString());
+                    signUpRequest.setBirthDay(binding.dateOfBirth.getEditText().getText().toString());
+                    signUpRequest.setPhoneNumber(binding.phoneNumTIL.getEditText().getText().toString());
+                    signUpRequest.setCity(binding.nationalIdTIL.getEditText().getText().toString());
+                    signUpRequest.setGender(getGenderValue());
+                    signUpRequest.setConfirmPassword(binding.passTIL.getEditText().getText().toString());
+                    signUpRequest.setConfirmPassword(binding.confirmPassTIL.getEditText().getText().toString());
+                    registerUser(signUpRequest);
+
         }
         });
         binding.loginTextBtn.setOnClickListener(new View.OnClickListener() {
