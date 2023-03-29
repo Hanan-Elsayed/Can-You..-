@@ -7,9 +7,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.canyou.R;
 import com.example.canyou.databinding.ActivityLoginBinding;
+import com.example.canyou.pojo.LoginRequest;
+import com.example.canyou.pojo.LoginResponse;
+import com.example.canyou.pojo.SignUpRequest;
+import com.example.canyou.source.RetrofitClient;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     private ActivityLoginBinding binding;
@@ -27,22 +36,12 @@ public class LoginActivity extends AppCompatActivity {
     }
     private boolean validatePassword() {
         String val = binding.passTIL.getEditText().getText().toString();
-        String passwordVal = "^" +
-                //"(?=.*[0-9])" +         //at least 1 digit
-                //"(?=.*[a-z])" +         //at least 1 lower case letter
-                //"(?=.*[A-Z])" +         //at least 1 upper case letter
-                "(?=.*[a-zA-Z])" +      //any letter
-                //             "(?=.*[@#$%^&+=])" +    //at least 1 special character
-                //        "(?=\\S+$)" +           //no white spaces
-                ".{5,}" +               //at least 5 characters
-                "$";
+
 
         if (val.isEmpty()) {
             binding.passTIL.setError("Field cannot be empty");
             return false;
-        }  else if (!val.matches(passwordVal)) {
-            binding.passTIL.setError("Password is too weak");
-            return false;
+
         } else {
             binding.passTIL.setError(null);
             binding.passTIL.setErrorEnabled(false);
@@ -51,12 +50,9 @@ public class LoginActivity extends AppCompatActivity {
     }
     private boolean validateEmail() {
         String val = binding.emailTIL.getEditText().getText().toString();
-        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
         if (val.isEmpty()) {
             binding.emailTIL.setError("Field cannot be empty");
-            return false;
-        } else if (!val.matches(emailPattern)) {
-            binding.emailTIL.setError("Invalid email address");
             return false;
         }  else {
             binding.emailTIL.setError(null);
@@ -70,7 +66,19 @@ public class LoginActivity extends AppCompatActivity {
         binding.submitLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//validation
+                if(!validatePassword() |
+                        !validateEmail()  )
+                {
+                    return;
+                }else {
+                    LoginRequest loginRequest=new LoginRequest();
+                    loginRequest.setEmail(binding.emailTIL.getEditText().getText().toString());
 
+                    loginRequest.setPassword(binding.passTIL.getEditText().getText().toString());
+                    loginUser(loginRequest);
+
+                }
             }
         });
 binding.signupTextBtn.setOnClickListener(new View.OnClickListener() {
@@ -80,5 +88,34 @@ binding.signupTextBtn.setOnClickListener(new View.OnClickListener() {
     }
 });
 }
+    public void toastMessage(String message ){
+        Toast.makeText(LoginActivity.this,message,Toast.LENGTH_LONG).show();
+
+    }
+    private void loginUser(LoginRequest loginRequest) {
+        Call<LoginResponse> loginResponseCall = RetrofitClient.getService().loginUser(loginRequest);
+        loginResponseCall.enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                if (response.isSuccessful()){
+                    String message ="Login successful... ";
+                    toastMessage( message ) ;
+                    LoginResponse loginResponse=response.body();
+
+
+                }else {
+                    String message ="An error occurred please try again later... ";
+                    toastMessage( message ) ;
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                String message =t.getLocalizedMessage();
+                toastMessage( message ) ;
+            }
+        });
+    }
 
 }

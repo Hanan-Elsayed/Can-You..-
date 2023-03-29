@@ -2,7 +2,9 @@ package com.example.canyou.pojo;
 
 import com.google.gson.annotations.SerializedName;
 
-public class LoginResponse{
+import java.io.Serializable;
+
+public class LoginResponse implements Serializable {
 
 	@SerializedName("user")
 	private User user;
