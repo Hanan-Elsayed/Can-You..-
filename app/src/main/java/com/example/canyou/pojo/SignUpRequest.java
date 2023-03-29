@@ -25,7 +25,7 @@ public class SignUpRequest{
 	@SerializedName("fullName")
 	private String fullName;
 
-	@SerializedName("ConfirmPassword")
+	@SerializedName("confirmPassword")
 	private String confirmPassword;
 
 	@SerializedName("email")

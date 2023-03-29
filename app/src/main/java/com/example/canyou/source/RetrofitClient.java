@@ -6,18 +6,21 @@ import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 public abstract class   RetrofitClient {
-    private final static  String BASE_URL="https://canyou.onrender.com/";
-    private static Retrofit retrofit;
-    private static HttpLoggingInterceptor httpLoggingInterceptor=new HttpLoggingInterceptor();
-    private static OkHttpClient okHttpClient;
+
+    public static Retrofit getRetrofit(){
+        HttpLoggingInterceptor httpLoggingInterceptor=new HttpLoggingInterceptor();
+        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build();
+        Retrofit retrofit= new Retrofit.Builder().
+                addConverterFactory(GsonConverterFactory.create())
+                .baseUrl("https://canyou.onrender.com/")
+                .client(okHttpClient)
+                .build();
+        return retrofit;
+    }
     public static WebService getService(){
-httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-okHttpClient=new OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build();
-        if(retrofit==null)
-        {
-            retrofit= new Retrofit.Builder().baseUrl(BASE_URL).client(okHttpClient).addConverterFactory(GsonConverterFactory.create()).build();
-        }
-        return retrofit.create(WebService.class);
+WebService webService=getRetrofit().create(WebService.class);
+return webService;
     }
 
 }

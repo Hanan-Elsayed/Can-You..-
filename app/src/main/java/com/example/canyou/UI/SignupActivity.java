@@ -58,7 +58,7 @@ public void registerUser(SignUpRequest signUpRequest){
             if(response.isSuccessful()){
                 String message ="Register successful... ";
                 toastMessage( message ) ;
-//                changeActivity(LoginActivity.class);
+               changeActivity(MainActivity.class);
             }else {
                 String message ="An error occurred please try again later... ";
                 toastMessage( message ) ;
@@ -295,7 +295,7 @@ private boolean validateEmail() {
                     signUpRequest.setPhoneNumber(binding.phoneNumTIL.getEditText().getText().toString());
                     signUpRequest.setCity(binding.nationalIdTIL.getEditText().getText().toString());
                     signUpRequest.setGender(getGenderValue());
-                    signUpRequest.setConfirmPassword(binding.passTIL.getEditText().getText().toString());
+                    signUpRequest.setPassword(binding.passTIL.getEditText().getText().toString());
                     signUpRequest.setConfirmPassword(binding.confirmPassTIL.getEditText().getText().toString());
                     registerUser(signUpRequest);
 
