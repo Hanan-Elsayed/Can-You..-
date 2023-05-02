@@ -34,4 +34,7 @@
     <color name="dark_pink">#D95F69</color>
     <color name="round_back_ground_clr">#26FFFFFF</color>
 
+    <color name="error_text_color">#800000</color>
+    <color name="error_BK_color">#EF9D9D</color>
+
 </resources>

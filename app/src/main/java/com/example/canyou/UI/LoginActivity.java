@@ -6,7 +6,6 @@ import androidx.databinding.DataBindingUtil;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.canyou.R;
@@ -97,15 +96,24 @@ binding.signupTextBtn.setOnClickListener(new View.OnClickListener() {
         loginResponseCall.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                System.out.println(response);
                 if (response.isSuccessful()){
                     String message ="Login successful... ";
                     toastMessage( message ) ;
                     LoginResponse loginResponse=response.body();
+                    Intent intent=new Intent(LoginActivity.this, MainActivity.class);
+//                    intent.putExtra("data",loginResponse);
+                    startActivity(intent);
+                    finish();
 
-
+//                        startActivity(new Intent(LoginActivity.this,MainActivity.class).putExtra("data",loginResponse));
+//                        finish();
                 }else {
-                    String message ="An error occurred please try again later... ";
-                    toastMessage( message ) ;
+
+                    binding.passTIL.setError(" ");
+                    binding.emailTIL.setError(" ");
+                   binding.errorTV.setText("Email OR/AND Password is not valid");
+                    binding.errorTV.setVisibility(View.VISIBLE);
                 }
 
             }

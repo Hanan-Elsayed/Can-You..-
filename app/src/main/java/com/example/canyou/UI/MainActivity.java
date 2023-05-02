@@ -31,6 +31,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar=findViewById(R.id.toolbar);
 
 
+//Intent intent=getIntent();
+//if (intent.getExtras() != null){
+//loginResponse= (LoginResponse) intent.getSerializableExtra("data");
+//Log.e("TAG","=====>"+loginResponse.getUser());
+//
+//}
 
         setSupportActionBar(toolbar);
         drawerLayout = findViewById(R.id.drawer_layout);
