@@ -58,7 +58,7 @@ public void registerUser(SignUpRequest signUpRequest){
             if(response.isSuccessful()){
                 String message ="Register successful... ";
                 toastMessage( message ) ;
-               changeActivity(LoginActivity.class);
+               changeActivity(ProfileImageActivity.class);
             }else {
                 String message ="An error occurred please try again later... ";
                 toastMessage( message ) ;

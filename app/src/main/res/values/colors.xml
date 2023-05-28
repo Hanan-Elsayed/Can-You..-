@@ -37,4 +37,7 @@
     <color name="error_text_color">#800000</color>
     <color name="error_BK_color">#EF9D9D</color>
 
+
+    <color name="Light_Gray">#D3D3D3</color>
+
 </resources>

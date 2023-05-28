@@ -48,5 +48,10 @@
     <string name="faqs">FAQs</string>
     <string name="logout">Logout</string>
 
+    <!--Home page-->
+    <string name="Create_Post_ET">What do you need ?
+
+
+    </string>
 
 </resources>

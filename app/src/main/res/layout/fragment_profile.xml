@@ -5,13 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".UI.ProfileFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profile Fragment"
-        android:layout_marginLeft="@dimen/_13sdp"
-        android:layout_marginTop="@dimen/_60sdp"
-        android:textSize="@dimen/_40ssp"
-        android:textColor="@color/prim_clr"/>
+
 
 </FrameLayout>

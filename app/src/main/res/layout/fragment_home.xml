@@ -1,16 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
     tools:context=".UI.HomeFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/create_post"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Home Fragment"
-        android:layout_marginLeft="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_60sdp"
-        android:textSize="@dimen/_40ssp"
-        android:textColor="@color/prim_clr"/>
-</FrameLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/white"
+        android:layout_margin="@dimen/_8sdp"
+        app:cardCornerRadius="@dimen/_8sdp"
+
+>
+
+          <EditText
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/Light_Gray"
+              android:layout_margin="@dimen/_8sdp"
+              android:hint="@string/Create_Post_ET"
+              android:padding="@dimen/_8sdp"
+              android:textStyle="bold|italic"
+              android:fontFamily="serif"
+
+              />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
