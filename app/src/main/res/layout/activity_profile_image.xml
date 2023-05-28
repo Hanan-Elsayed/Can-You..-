@@ -4,6 +4,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/prim_clr"
     tools:context=".UI.ProfileImageActivity">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/select_photo_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_8sdp"
 
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/_5sdp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+        <TextView
+            android:id="@+id/change_profile_btn"
+            android:text="@string/choose_pic"
+            android:textSize="@dimen/_18sdp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_38sdp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/profileimage"
+            app:civ_border_color="@color/prim_clr"
+            app:civ_border_width="@dimen/_2sdp"
+            android:layout_marginBottom="@dimen/_19sdp"
+
+            />
+        </RelativeLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/select_photo_card"
+        android:layout_marginTop="@dimen/_160sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:weightSum="2"
+        >
+
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            app:cornerRadius="@dimen/_8sdp"
+            android:backgroundTint="@color/white"
+            android:layout_weight="1"
+            android:textColor="@color/prim_clr"
+            android:textSize="@dimen/_20ssp"
+            android:textStyle="bold|italic"
+            android:text="@string/submit"
+            />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            app:cornerRadius="@dimen/_8sdp"
+            android:backgroundTint="@color/white"
+            android:layout_weight="1"
+            android:text="@string/skip"
+            android:textColor="@color/prim_clr"
+            android:textSize="@dimen/_20ssp"
+            android:textStyle="bold|italic"
+            android:drawableEnd="@drawable/skip_vector"
+            />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
