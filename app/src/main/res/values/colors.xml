@@ -39,5 +39,8 @@
 
 
     <color name="Light_Gray">#D3D3D3</color>
+    <color name="Red_color">#Ff0000</color>
+    <color name="pink">#ff1493</color>
+    <color name="dark_gray">#3A3939</color>
 
 </resources>

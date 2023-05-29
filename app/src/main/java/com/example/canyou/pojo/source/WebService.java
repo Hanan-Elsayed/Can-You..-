@@ -1,4 +1,4 @@
-package com.example.canyou.source;
+package com.example.canyou.pojo.source;
 import com.example.canyou.pojo.LoginRequest;
 import com.example.canyou.pojo.LoginResponse;
 import com.example.canyou.pojo.SignUpRequest;

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_margin="@dimen/_10sdp"
+    >
+
+
+    <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/choose_upload"
+    android:textStyle="bold"
+    android:textSize="@dimen/_18ssp"
+    android:textColor="@color/dark_gray"
+        android:layout_marginStart="@dimen/_75sdp"
+    android:layout_marginTop="@dimen/_20sdp" />
+
+    <LinearLayout
+    android:id="@+id/linear"
+        android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_55sdp"
+android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:orientation="vertical">
+                <ImageView
+                    android:layout_width="@dimen/_38sdp" android:layout_height="@dimen/_38sdp"
+                    android:src="@drawable/baseline_photo_library_24"
+                    android:id="@+id/gallery_button"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="@dimen/_5sdp"
+                    app:tint="@color/purple_500" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gallery"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:orientation="vertical">
+                <ImageView
+                    android:layout_width="@dimen/_38sdp"
+                    android:layout_height="@dimen/_38sdp"
+                    android:src="@drawable/baseline_linked_camera_24"                    android:id="@+id/camera_button"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="@dimen/_5sdp"
+                    app:tint="@color/pink" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/camera"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:orientation="vertical">
+                <ImageView
+                    android:layout_width="@dimen/_38sdp" android:layout_height="@dimen/_38sdp"
+                    android:src="@drawable/baseline_close_24"
+                    android:id="@+id/back_button"
+                    app:tint="@color/Red_color"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="@dimen/_5sdp"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/back"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="bold"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+
+
+<!--</LinearLayout>-->
+<!--<LinearLayout-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_margin="10dp"-->
+<!--    android:orientation="vertical">-->
+<!--    <ImageView-->
+<!--        android:layout_width="0dp" android:layout_height="40dp"-->
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content" android:layout_height="wrap_content"-->
+<!--        android:text="Back"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:textColor="@color/text_color"-->
+<!--        android:textStyle="bold"/>-->
+<!--</LinearLayout>-->
+
+<!--</LinearLayout>-->

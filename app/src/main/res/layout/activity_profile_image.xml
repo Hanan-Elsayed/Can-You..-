@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingTop="@dimen/_5sdp">
+                android:paddingTop="@dimen/_10sdp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -39,7 +39,7 @@
                     >
 
                     <TextView
-                        android:id="@+id/change_profile_btn"
+                        android:id="@+id/choose_profile_txt"
                         android:text="@string/choose_pic"
                         android:textSize="@dimen/_18sdp"
                         android:textStyle="bold"
@@ -57,7 +57,7 @@
                         android:src="@drawable/profileimage"
                         app:civ_border_color="@color/prim_clr"
                         app:civ_border_width="@dimen/_2sdp"
-                        android:layout_marginBottom="@dimen/_19sdp"
+                        android:layout_marginBottom="@dimen/_25sdp"
 
                         />
                 </RelativeLayout>
@@ -69,13 +69,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/select_photo_card"
-            android:layout_marginTop="@dimen/_160sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:weightSum="2">
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:weightSum="2"
+            app:layout_constraintBottom_toBottomOf="parent">
 
 
             <Button
+                android:id="@+id/submit_btn"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginStart="@dimen/_15sdp"
@@ -88,6 +89,7 @@
                 android:text="@string/submit" />
 
             <Button
+                android:id="@+id/skip_btn"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginStart="@dimen/_15sdp"
@@ -98,7 +100,8 @@
                 android:textColor="@color/prim_clr"
                 android:textSize="@dimen/_20ssp"
                 android:textStyle="bold|italic"
-                android:drawableEnd="@drawable/skip_vector" />
+                android:drawableEnd="@drawable/skip_vector"
+                />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
