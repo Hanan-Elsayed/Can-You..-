@@ -14,7 +14,7 @@ import com.example.canyou.R;
 import com.example.canyou.databinding.ActivitySignupBinding;
 import com.example.canyou.pojo.SignUpRequest;
 import com.example.canyou.pojo.SignUpResponse;
-import com.example.canyou.pojo.source.RetrofitClient;
+import com.example.canyou.source.RetrofitClient;
 
 import retrofit2.Call;
 import retrofit2.Callback;

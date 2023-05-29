@@ -12,7 +12,7 @@ import com.example.canyou.R;
 import com.example.canyou.databinding.ActivityLoginBinding;
 import com.example.canyou.pojo.LoginRequest;
 import com.example.canyou.pojo.LoginResponse;
-import com.example.canyou.pojo.source.RetrofitClient;
+import com.example.canyou.source.RetrofitClient;
 
 import retrofit2.Call;
 import retrofit2.Callback;

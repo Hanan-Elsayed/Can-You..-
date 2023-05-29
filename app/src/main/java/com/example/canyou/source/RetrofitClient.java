@@ -1,4 +1,4 @@
-package com.example.canyou.pojo.source;
+package com.example.canyou.source;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
