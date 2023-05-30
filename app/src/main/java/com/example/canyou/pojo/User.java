@@ -1,6 +1,10 @@
 package com.example.canyou.pojo;
 
+import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class User{
 
@@ -69,4 +73,16 @@ public class User{
 	public String getEmail(){
 		return email;
 	}
+	// Convert User object to JSON string
+	public String toJsonString() {
+		Gson gson = new Gson();
+		return gson.toJson(this);
+	}
+
+	// Create User object from JSON string
+	public static User fromJsonString(String jsonString) {
+		Gson gson = new Gson();
+		return gson.fromJson(jsonString, User.class);
+	}
+
 }

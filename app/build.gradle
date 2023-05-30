@@ -86,4 +86,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-database'
     implementation 'com.google.firebase:firebase-analytics'
 
+
+    implementation 'androidx.preference:preference-ktx:1.1.1'
+
+
 }
