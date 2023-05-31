@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.canyou.PreferenceManager;
 import com.example.canyou.R;
 import com.example.canyou.databinding.ActivityLoginBinding;
 import com.example.canyou.pojo.LoginRequest;
@@ -20,11 +21,15 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     private ActivityLoginBinding binding;
+    private PreferenceManager preferenceManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this,R.layout.activity_login);
+        preferenceManager = new PreferenceManager(this);
+
         onClicks();
     }
     public void changeActivity(Class activity) {
@@ -96,17 +101,20 @@ binding.signupTextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 System.out.println(response);
-                if (response.isSuccessful()){
-                    String message ="Login successful... ";
-                    toastMessage( message ) ;
-                    LoginResponse loginResponse=response.body();
-                    Intent intent=new Intent(LoginActivity.this, MainActivity.class);
-//                    intent.putExtra("data",loginResponse);
+                if (response.isSuccessful()) {
+                    String message = "Login successful... ";
+                    toastMessage(message);
+                    LoginResponse loginResponse = response.body();
+
+                    // Save user and token to shared preferences
+                    if (loginResponse != null) {
+                        preferenceManager.saveUser(loginResponse.getUser());
+                        preferenceManager.saveToken(loginResponse.getToken());
+                    }
+
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
-
-//                        startActivity(new Intent(LoginActivity.this,MainActivity.class).putExtra("data",loginResponse));
-//                        finish();
                 }else {
 
                     binding.passTIL.setError(" ");

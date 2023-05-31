@@ -10,6 +10,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import com.example.canyou.PreferenceManager;
 import com.example.canyou.R;
 import com.example.canyou.databinding.ActivitySignupBinding;
 import com.example.canyou.pojo.SignUpRequest;
@@ -28,11 +30,15 @@ import android.app.DatePickerDialog;
 
 public class SignupActivity extends AppCompatActivity {
    private ActivitySignupBinding binding;
+    private PreferenceManager preferenceManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
          binding = DataBindingUtil.setContentView(this,R.layout.activity_signup);
+        preferenceManager = new PreferenceManager(this);
+
         initializeDropDownMenu();
         datePicker();
         onClicks();
@@ -55,6 +61,12 @@ public void registerUser(SignUpRequest signUpRequest){
             if(response.isSuccessful()){
                 String message ="Register successful... ";
                 toastMessage( message ) ;
+                SignUpResponse signUpResponse=response.body();
+                // Save user and token to shared preferences
+                if (signUpResponse != null) {
+                    preferenceManager.saveUser(signUpResponse.getUser());
+                    preferenceManager.saveToken(signUpResponse.getToken());
+                }
                changeActivity(ProfileImageActivity.class);
             }else {
                 String message ="An error occurred please try again later... ";

@@ -3,16 +3,10 @@ package com.example.canyou.pojo;
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 public class User{
 
 	@SerializedName("AvatarUrl")
 	private String avatarUrl;
-
-	@SerializedName("city")
-	private String city;
 
 	@SerializedName("fullName")
 	private String fullName;
@@ -32,14 +26,6 @@ public class User{
 
 	public String getAvatarUrl(){
 		return avatarUrl;
-	}
-
-	public void setCity(String city){
-		this.city = city;
-	}
-
-	public String getCity(){
-		return city;
 	}
 
 	public void setFullName(String fullName){
@@ -73,6 +59,7 @@ public class User{
 	public String getEmail(){
 		return email;
 	}
+
 	// Convert User object to JSON string
 	public String toJsonString() {
 		Gson gson = new Gson();
