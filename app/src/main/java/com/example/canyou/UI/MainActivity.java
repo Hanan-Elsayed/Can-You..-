@@ -12,15 +12,15 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 
+import com.example.canyou.PreferenceManager;
 import com.example.canyou.R;
 import com.example.canyou.pojo.LoginResponse;
-import com.example.canyou.pojo.User;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    private PreferenceManager preferenceManager;
 
     private DrawerLayout drawerLayout;
     LoginResponse loginResponse;
@@ -28,15 +28,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Get the shared preferences instance
+        preferenceManager = new PreferenceManager(this);
+
         Toolbar toolbar=findViewById(R.id.toolbar);
-
-
-//Intent intent=getIntent();
-//if (intent.getExtras() != null){
-//loginResponse= (LoginResponse) intent.getSerializableExtra("data");
-//Log.e("TAG","=====>"+loginResponse.getUser());
-//
-//}
 
         setSupportActionBar(toolbar);
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -87,7 +83,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 changeFragment(new AboutFragment());
                 break;
             case R.id.nav_logout:
-                Intent intent= new Intent(this, LoginActivity.class);
+                preferenceManager.clearUserAndToken();
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
                 break;

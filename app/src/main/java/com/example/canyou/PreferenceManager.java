@@ -38,4 +38,12 @@ public class PreferenceManager {
     public String getToken() {
         return sharedPreferences.getString(KEY_TOKEN, null);
     }
+
+
+    public void clearUserAndToken() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove(KEY_USER);
+        editor.remove(KEY_TOKEN);
+        editor.apply();
+    }
 }
