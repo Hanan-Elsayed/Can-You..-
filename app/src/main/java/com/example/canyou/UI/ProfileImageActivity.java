@@ -4,6 +4,8 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
@@ -12,13 +14,18 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.Gravity;
@@ -44,9 +51,12 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.UUID;
 
 public class ProfileImageActivity extends AppCompatActivity {
+    private static final int PERMISSION_CODE = 1234;
+    private static final int CAPTURE_CODE = 1001;
     private ActivityProfileImageBinding binding;
     private FirebaseAuth auth;
     private FirebaseUser firebaseUser;
@@ -91,24 +101,10 @@ public class ProfileImageActivity extends AppCompatActivity {
                     }
                 });
 
-        cameraLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-                new ActivityResultCallback<ActivityResult>() {
-                    @Override
-                    public void onActivityResult(ActivityResult result) {
-                        if (result.getResultCode() == Activity.RESULT_OK) {
-                            Intent data = result.getData();
-                            if (data != null && data.getExtras() != null) {
-                                Bitmap imageBit = (Bitmap) data.getExtras().get("data");
-                                binding.profileImage.setImageBitmap(imageBit);
-                                saveCameraImage(imageBit);
-                            }
-                        } else {
-                            // Write access permission denied
-                            Toast.makeText(ProfileImageActivity.this, "Write access permission denied", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+
     }
+
+
 
     private void saveCameraImage(Bitmap imageBitmap) {
         // Generate a unique filename for the image
@@ -145,7 +141,8 @@ public class ProfileImageActivity extends AppCompatActivity {
     private void sendImageUrl(String imageUrl) {
 // Get the user token from SharedPreferences
         PreferenceManager preferenceManager = new PreferenceManager(this);
-        String token = preferenceManager.getToken();
+        String token ="eyJhbGciOiJIUzI1NiJ9.NjQ3NzFmODIxZjhiMTAyYzVlNDNkNjlj.OfLwzK1yj3Tl60bdul_06sfcIQfFVYBTp6IDolg5Bns";
+                // preferenceManager.getToken();
 
         // Create a User object with the imageUrl
         User user = new User();
@@ -229,9 +226,8 @@ public class ProfileImageActivity extends AppCompatActivity {
 
     private void getProfileUploadLayout() {
         ImageView camera_btn, gallery_btn, back_btn;
-        Dialog uploadDialog = new Dialog(this);
+        Dialog uploadDialog = new Dialog(ProfileImageActivity.this);
         uploadDialog.setContentView(R.layout.profile_upload_layout);
-        uploadDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         gallery_btn = uploadDialog.findViewById(R.id.gallery_button);
         camera_btn = uploadDialog.findViewById(R.id.camera_button);
         back_btn = uploadDialog.findViewById(R.id.back_button);
@@ -240,7 +236,7 @@ public class ProfileImageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 uploadDialog.dismiss();
-                getProfileFromGallery();
+                 getProfileFromGallery();
             }
         });
 
@@ -248,7 +244,7 @@ public class ProfileImageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 uploadDialog.dismiss();
-                getProfileFromCamera();
+                 getProfileFromCamera();
             }
         });
 
@@ -271,7 +267,63 @@ public class ProfileImageActivity extends AppCompatActivity {
     }
 
     private void getProfileFromCamera() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        cameraLauncher.launch(intent);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.CAMERA) ==
+                    PackageManager.PERMISSION_DENIED ||
+                    checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
+                            PackageManager.PERMISSION_DENIED) {
+                String[] permission = {Manifest.permission.CAMERA,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE};
+                requestPermissions(permission, PERMISSION_CODE);
+            }else {
+                openCamera();
+            }
+        }else {
+
+            openCamera();
+        }
+    }
+
+    private void openCamera() {
+        ContentValues values = new ContentValues();
+        values.put(MediaStore. Images.Media. TITLE, "new image");
+        values.put(MediaStore. Images.Media.DESCRIPTION, "Fromthe Camera");
+        imageUri= getContentResolver().insert(MediaStore. Images.Media.EXTERNAL_CONTENT_URI, values);
+        Intent camIntent = new Intent (MediaStore.ACTION_IMAGE_CAPTURE); camIntent.putExtra (MediaStore.EXTRA_OUTPUT, imageUri);
+        startActivityForResult(camIntent, CAPTURE_CODE);
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case PERMISSION_CODE:
+                if (grantResults.length > 0 && grantResults[0] ==
+                        PackageManager.PERMISSION_GRANTED) {
+                    openCamera();
+                } else {
+
+                Toast.makeText( this,  "Permission denied", Toast.LENGTH_SHORT).show();
+                       }
+        }
+    }
+
+    @SuppressLint("MissingSuperCall")
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (resultCode==RESULT_OK){
+
+            binding.profileImage.setImageURI(imageUri);
+            try {
+                Bitmap imageBit = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
+                saveCameraImage(imageBit);
+            } catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(ProfileImageActivity.this, "Failed to load image", Toast.LENGTH_SHORT).show();
+            }
+
+        }
     }
 }

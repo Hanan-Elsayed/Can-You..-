@@ -38,6 +38,10 @@
     <color name="error_BK_color">#EF9D9D</color>
 
 
+    <color name="night_primary">#323333</color>
+    <color name="night_secondary">#131111</color>
+
+
     <color name="Light_Gray">#D3D3D3</color>
     <color name="Red_color">#Ff0000</color>
     <color name="pink">#ff1493</color>
