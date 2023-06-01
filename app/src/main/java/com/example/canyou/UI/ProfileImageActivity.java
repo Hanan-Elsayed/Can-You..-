@@ -63,7 +63,6 @@ public class ProfileImageActivity extends AppCompatActivity {
     private Uri imageUri;
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReference();
-    private ActivityResultLauncher<Intent> cameraLauncher;
     private ActivityResultLauncher<Intent> storagePermissionLauncher;
 
     @Override
@@ -141,8 +140,7 @@ public class ProfileImageActivity extends AppCompatActivity {
     private void sendImageUrl(String imageUrl) {
 // Get the user token from SharedPreferences
         PreferenceManager preferenceManager = new PreferenceManager(this);
-        String token ="eyJhbGciOiJIUzI1NiJ9.NjQ3NzFmODIxZjhiMTAyYzVlNDNkNjlj.OfLwzK1yj3Tl60bdul_06sfcIQfFVYBTp6IDolg5Bns";
-                // preferenceManager.getToken();
+        String token =preferenceManager.getToken();
 
         // Create a User object with the imageUrl
         User user = new User();

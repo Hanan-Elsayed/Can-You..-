@@ -11,13 +11,21 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.view.MenuItem;
 
+import android.os.Bundle;
+
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 import com.example.canyou.PreferenceManager;
 import com.example.canyou.R;
 import com.example.canyou.pojo.LoginResponse;
+import com.example.canyou.pojo.User;
 import com.google.android.material.navigation.NavigationView;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private PreferenceManager preferenceManager;
@@ -46,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             changeFragment(new HomeFragment());
             navigationView.setCheckedItem(R.id.nav_home);
         }
-
+        setUserImageAndNameWithClicksHandling();
     }
 
     private void changeFragment(Fragment fragment) {
@@ -100,6 +108,41 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             super.onBackPressed();
         }
+    }
+    public void setUserImageAndNameWithClicksHandling(){
+        User user = preferenceManager.getUser();
+        if (user != null) {
+            NavigationView navigationView = findViewById(R.id.nav_view);
+            View navHeaderView = navigationView.getHeaderView(0);
+            CircleImageView profileImage = navHeaderView.findViewById(R.id.profile_image);
+            TextView userName = navHeaderView.findViewById(R.id.user_name);
+
+            // Set the user's profile image using the avatarUrl
+            // use Glide library for image loading
+            Glide.with(this)
+                    .load(user.getAvatarUrl())
+                    .into(profileImage);
+
+            // Set the user's name
+            userName.setText(user.getFullName());
+
+            profileImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    changeFragment(new ProfileFragment());
+
+                }
+            });
+            userName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    changeFragment(new ProfileFragment());
+
+                }
+            });
+        }
+
+
     }
 
 
