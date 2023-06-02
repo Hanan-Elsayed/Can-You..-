@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#9C9C9E</color>
     <color name="prim_clr">#52D4EA</color>
-    <color name="second_clr">#2948BD</color>
+    <color name="second_clr">#CEEAEF</color>
     <color name="slide_heading">#2948BD</color>
 <!--   dots active colors-->
     <color name="dots_active_1">#2948BD</color>
@@ -46,5 +46,9 @@
     <color name="Red_color">#Ff0000</color>
     <color name="pink">#ff1493</color>
     <color name="dark_gray">#3A3939</color>
+
+
+    <color name="mid_gray">#706F6F</color>
+    <color name="post_background">#EFEDED</color>
 
 </resources>

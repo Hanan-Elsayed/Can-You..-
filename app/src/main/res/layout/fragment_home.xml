@@ -4,38 +4,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/black"
+    android:background="@color/white"
     tools:context=".UI.HomeFragment">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/create_post"
+        android:id="@+id/create_post_card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/white"
+        app:cardBackgroundColor="@color/post_background"
         android:layout_margin="@dimen/_8sdp"
+        android:padding="@dimen/_10sdp"
         app:cardCornerRadius="@dimen/_8sdp"
 
 >
-
-          <EditText
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:background="@color/Light_Gray"
-              android:layout_margin="@dimen/_8sdp"
-              android:hint="@string/Create_Post_ET"
-              android:padding="@dimen/_8sdp"
-              android:textStyle="bold|italic"
-              android:fontFamily="serif"
-
-              />
-        <LinearLayout
+        <com.google.android.material.textview.MaterialTextView
+android:id="@+id/create_post"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:background="@color/Light_Gray"
+            android:text="@string/Create_Post_ET"
+            android:padding="@dimen/_8sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:textStyle="bold|italic"
+            android:fontFamily="serif"
+
+
+            />
 
 
 
-        </LinearLayout>
+
     </androidx.cardview.widget.CardView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -63,4 +63,9 @@
     <string name="camera">Camera</string>
     <string name="back">Back</string>
 
+<!--    item post layout-->
+    <string name="comment">Comments</string>
+    <string name="enter_comment">Write a Comment</string>
+
+
 </resources>
