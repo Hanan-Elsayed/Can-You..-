@@ -123,13 +123,16 @@ android:layout_marginTop="@dimen/_6sdp"
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_weight="4"
+        >
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailTIL"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/enter_comment"
         android:padding="@dimen/_5sdp"
+        android:layout_weight="6"
 
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
@@ -137,14 +140,20 @@ android:layout_marginTop="@dimen/_6sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:drawableEnd="@drawable/add_comment"
-            android:drawablePadding="@dimen/_10sdp"
             android:fontFamily="serif"
             android:textColor="@color/mid_gray"
             android:textSize="@dimen/_13ssp"
             android:textStyle="bold|italic"
-            />
+          />
+
     </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/add_comment"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            />
     </LinearLayout>
 
 </LinearLayout>

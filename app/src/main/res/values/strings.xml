@@ -57,13 +57,13 @@
     <string name="submit">Submit</string>
     <string name="skip">Skip</string>
 
-<!-- Profile Upload Layout-->
+    <!-- Profile Upload Layout-->
     <string name="choose_upload">Choose to upload</string>
     <string name="gallery">Gallery</string>
     <string name="camera">Camera</string>
     <string name="back">Back</string>
 
-<!--    item post layout-->
+    <!--    item post layout-->
     <string name="comment">Comments</string>
     <string name="enter_comment">Write a Comment</string>
 

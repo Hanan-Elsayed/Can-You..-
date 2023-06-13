@@ -216,14 +216,14 @@ private boolean validateEmail() {
                 "(?=.*[a-zA-Z])" +      //any letter
    //             "(?=.*[@#$%^&+=])" +    //at least 1 special character
         //        "(?=\\S+$)" +           //no white spaces
-                ".{5,}" +               //at least 5 characters
+                ".{7,}" +               //at least 5 characters
                 "$";
 
         if (val.isEmpty()) {
             binding.passTIL.setError("Field cannot be empty");
             return false;
         }  else if (!val.matches(passwordVal)) {
-            binding.passTIL.setError("Password is too weak");
+            binding.passTIL.setError("password should be at least 7 characters");
             return false;
         } else {
             binding.passTIL.setError(null);
