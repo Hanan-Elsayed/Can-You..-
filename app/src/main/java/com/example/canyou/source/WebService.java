@@ -1,5 +1,7 @@
 package com.example.canyou.source;
 import com.example.canyou.pojo.AvatarResponse;
+import com.example.canyou.pojo.CreatePostRequest;
+import com.example.canyou.pojo.CreatePostResponse;
 import com.example.canyou.pojo.LoginRequest;
 import com.example.canyou.pojo.LoginResponse;
 import com.example.canyou.pojo.PostResponseItem;
@@ -29,5 +31,7 @@ public interface WebService {
 
 @GET("api/posts")
   Call<List<PostResponseItem>> getPosts(@Header("Authorization") String token);
+    @POST("api/posts")
+    Call<CreatePostResponse> createPost(@Header("Authorization") String token, @Body CreatePostRequest createPostRequest);
 
 }

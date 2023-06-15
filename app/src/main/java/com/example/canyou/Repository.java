@@ -18,7 +18,9 @@ public class Repository {
     }
 
     public void getPosts(String token, Callback<List<PostResponseItem>> callback) {
-        Call<List<PostResponseItem>> call = webService.getPosts("Bearer " + token);
+        // Add an authorization header with the bearer token
+        String authorizationHeader = "Bearer " + token;
+        Call<List<PostResponseItem>> call = webService.getPosts(authorizationHeader);
         call.enqueue(callback);
     }
 }

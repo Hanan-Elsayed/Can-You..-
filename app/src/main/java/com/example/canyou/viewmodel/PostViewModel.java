@@ -40,7 +40,6 @@ public class PostViewModel extends ViewModel {
                 } else {
                     // Handle error
                     message.setValue("Failed to fetch posts");
-
                 }
             }
 
@@ -48,8 +47,6 @@ public class PostViewModel extends ViewModel {
             public void onFailure(Call<List<PostResponseItem>> call, Throwable t) {
                 // Handle failure
                 message.setValue(t.getLocalizedMessage());
-
             }
-        });
-    }
+        });}
 }
