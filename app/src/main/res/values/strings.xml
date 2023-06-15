@@ -67,5 +67,8 @@
     <string name="comment">Comments</string>
     <string name="enter_comment">Write a Comment</string>
 
+<!--    create post page-->
+    <string name="choose_photo">Choose Image </string>
+
 
 </resources>

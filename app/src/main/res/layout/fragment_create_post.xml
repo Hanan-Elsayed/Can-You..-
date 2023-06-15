@@ -1,14 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tool="http://schemas.android.com/apk/res-auto"
     tools:context=".UI.CreatePostFragment">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/create_post_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_400sdp"
+        app:cardBackgroundColor="@color/post_background"
+        android:layout_margin="@dimen/_8sdp"
+        android:padding="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_marginEnd="@dimen/_5sdp">
 
-</FrameLayout>
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/user_profile_image"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/defaultimage"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp" />
+
+
+    <TextView
+        android:id="@+id/user_full_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/user_profile_image"
+        app:layout_constraintStart_toEndOf="@id/user_profile_image"
+android:text="hello"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13ssp"
+        android:textStyle="bold|italic"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:fontFamily="serif"
+
+        />
+        <EditText
+            android:id="@+id/create_post_ET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/EditTextStyle"
+            android:layout_margin="@dimen/_8sdp"
+            android:hint="@string/Create_Post_ET"
+            android:textStyle="bold|italic"
+            android:fontFamily="serif"
+            android:textSize="@dimen/_14sdp"
+app:layout_constraintTop_toBottomOf="@id/user_profile_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/submit_btn"
+        app:layout_constraintTop_toBottomOf="@id/create_post_card_view"
+        android:text="@string/choose_photo"
+        android:textSize="@dimen/_13ssp"
+        android:textStyle="bold|italic"
+        android:fontFamily="serif"
+        android:textColor="@color/black"
+        android:drawablePadding="@dimen/_5sdp"
+        android:drawableEnd="@drawable/baseline_photo_library_24"/>
+    <Button
+        android:id="@+id/submit_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="@string/submit_btn"
+        android:textSize="@dimen/_13ssp"
+        android:textStyle="bold|italic"
+        android:fontFamily="serif"
+        app:cornerRadius="@dimen/_80sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

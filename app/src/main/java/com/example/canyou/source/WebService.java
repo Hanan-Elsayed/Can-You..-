@@ -29,4 +29,5 @@ public interface WebService {
 
 @GET("api/posts")
   Call<List<PostResponseItem>> getPosts(@Header("Authorization") String token);
+
 }
