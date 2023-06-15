@@ -1,46 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white"
-    tools:context=".UI.HomeFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/create_post_card_view"
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:cardBackgroundColor="@color/post_background"
-        android:layout_margin="@dimen/_8sdp"
-        android:padding="@dimen/_10sdp"
-        app:cardCornerRadius="@dimen/_8sdp"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".UI.HomeFragment">
 
->
-        <com.google.android.material.textview.MaterialTextView
-android:id="@+id/create_post"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/create_post_card_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/Light_Gray"
-            android:text="@string/Create_Post_ET"
-            android:padding="@dimen/_8sdp"
-            android:layout_margin="@dimen/_10sdp"
-            android:textStyle="bold|italic"
-            android:fontFamily="serif"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardBackgroundColor="@color/post_background"
+            android:layout_margin="@dimen/_8sdp"
+            android:padding="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_8sdp"
+
+            >
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/create_post"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/Light_Gray"
+                android:text="@string/Create_Post_ET"
+                android:padding="@dimen/_8sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:textStyle="bold|italic"
+                android:fontFamily="serif"
 
 
-            />
+                />
 
 
+        </androidx.cardview.widget.CardView>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/posts_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/create_post_card_view"
+            tools:listitem="@layout/item_post_layout" />
 
-    </androidx.cardview.widget.CardView>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/posts_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/create_post_card_view"
-        tools:listitem="@layout/item_post_layout"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

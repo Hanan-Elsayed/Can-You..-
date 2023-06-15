@@ -1,160 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tool="http://schemas.android.com/tools"
-    app:cardBackgroundColor="@color/post_background"
-    android:layout_marginTop="@dimen/_10sdp">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/author_profile_image"
-        android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_50sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tool:src="@drawable/defaultimage"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        />
+    xmlns:tool="http://schemas.android.com/tools">
 
+    <data>
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/author_full_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/author_profile_image"
-        app:layout_constraintStart_toEndOf="@id/author_profile_image"
-        tool:text="hello"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_16ssp"
-        android:textStyle="bold|italic"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:fontFamily="serif"
+    </data>
 
-        />
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/post_created_at"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/author_full_name"
-        app:layout_constraintBottom_toBottomOf="@id/author_profile_image"
-        app:layout_constraintStart_toEndOf="@id/author_profile_image"
-        tool:text="hello"
-        android:textColor="@color/gray"
-        android:textSize="@dimen/_13ssp"
-        android:textStyle="bold|italic"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_3sdp"
-        android:fontFamily="serif"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
-<com.google.android.material.textview.MaterialTextView
-    android:id="@+id/post_title"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textColor="@color/black"
-    android:textSize="@dimen/_16ssp"
-    android:fontFamily="serif"
-    android:layout_marginStart="@dimen/_8sdp"
-    android:layout_marginTop="@dimen/_6sdp"
-    android:padding="@dimen/_5sdp"
-    tool:text="hjvchjibhigbhhjscvshvhjcvdhcvhjvchjibhigbhvhjvhjscvshvhjcvdhcvhjvchvch"
-
-    />
-
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_300sdp"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_8sdp"
-        tool:src="@drawable/defaultimage"
-        />
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        app:cardBackgroundColor="@color/post_background"
+        android:layout_margin="@dimen/_8sdp"
+        android:padding="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_8sdp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="75dp"
-            android:layout_height="@dimen/_60sdp"
-            android:src="@drawable/like_icon"
-            android:layout_marginStart="@dimen/_10sdp"/>
-<com.google.android.material.textview.MaterialTextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    tool:text="20"
-    android:layout_margin="@dimen/_3sdp"
-    android:fontFamily="serif"
-    android:textColor="@color/mid_gray"
-    android:textSize="@dimen/_16ssp"
-    android:textStyle="bold|italic"
-android:paddingTop="@dimen/_13sdp"
-    />
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="@dimen/_60sdp"
-            android:layout_height="@dimen/_50sdp"
-            android:src="@drawable/comment_icon"
-            android:layout_marginStart="@dimen/_57sdp"
-            android:layout_marginTop="@dimen/_6sdp"/>
-<com.google.android.material.textview.MaterialTextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-android:text="@string/comment"
-    android:layout_margin="@dimen/_5sdp"
-    android:fontFamily="serif"
-    android:textColor="@color/mid_gray"
-    android:textSize="@dimen/_16ssp"
-    android:textStyle="bold|italic"
-android:layout_marginTop="@dimen/_6sdp"
-    />
-
-
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_weight="4"
-        >
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailTIL"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_comment"
-        android:padding="@dimen/_5sdp"
-        android:layout_weight="6"
-
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
-
-        <com.google.android.material.textfield.TextInputEditText
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:fontFamily="serif"
-            android:textColor="@color/mid_gray"
-            android:textSize="@dimen/_13ssp"
-            android:textStyle="bold|italic"
-          />
+            android:orientation="vertical"
+            android:layout_marginEnd="@dimen/_5sdp">
 
-    </com.google.android.material.textfield.TextInputLayout>
-        <Button
-            android:layout_width="0dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/author_profile_image"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tool:src="@drawable/defaultimage"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp" />
+
+
+                <TextView
+                    android:id="@+id/author_full_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/author_profile_image"
+                    app:layout_constraintStart_toEndOf="@id/author_profile_image"
+                    tool:text="hello"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp"
+                    android:textStyle="bold|italic"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:fontFamily="serif"
+
+                    />
+
+                <TextView
+                    android:id="@+id/post_created_at"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/author_full_name"
+                    app:layout_constraintBottom_toBottomOf="@id/author_profile_image"
+                    app:layout_constraintStart_toEndOf="@id/author_profile_image"
+                    tool:text="hello"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/_8ssp"
+                    android:textStyle="bold|italic"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:fontFamily="serif" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/post_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13ssp"
+                android:fontFamily="serif"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:padding="@dimen/_5sdp"
+                tool:text="hjvchjibhigbhhjscvshvhjcvdhcvhjvchjibhigbhvhjvhjscvshvhjcvdhcvhjvchvch"
+
+                />
+
+
+            <ImageView
+                android:id="@+id/post_img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                tool:src="@drawable/defaultimage" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_15sdp">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/like_card_view"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_45sdp"
+        app:cardBackgroundColor="@color/white"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:padding="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/comments_card_view"
+        app:layout_constraintTop_toTopOf="parent"            >
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableEnd="@drawable/add_comment"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            />
-    </LinearLayout>
+            android:orientation="horizontal"
+            android:padding="@dimen/_5sdp"
+  >
 
-</LinearLayout>
-</androidx.cardview.widget.CardView>
+    <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:src="@drawable/like_icon"
+                    android:layout_marginStart="@dimen/_5sdp"
+  />
+
+                <TextView
+                    android:id="@+id/likes_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tool:text="20"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:fontFamily="serif"
+                    android:textColor="@color/mid_gray"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold|italic"
+                    android:paddingTop="@dimen/_7sdp"
+                    android:layout_marginBottom="@dimen/_3sdp"
+                    />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/comments_card_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_45sdp"
+                    app:cardBackgroundColor="@color/white"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_3sdp"
+                    android:padding="@dimen/_10sdp"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/like_card_view"
+app:layout_constraintTop_toTopOf="parent"                   >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_5sdp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:src="@drawable/comment_icon"
+                    android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/comment"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:fontFamily="serif"
+                    android:textColor="@color/mid_gray"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold|italic"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_3sdp"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
