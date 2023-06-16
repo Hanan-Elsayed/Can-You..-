@@ -40,9 +40,11 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
+import com.bumptech.glide.Glide;
 import com.example.canyou.PreferenceManager;
 import com.example.canyou.R;
 import com.example.canyou.databinding.FragmentCreatePostBinding;
+import com.example.canyou.pojo.User;
 import com.example.canyou.viewmodel.CreatePostViewModel;
 import com.example.canyou.viewmodel.PostViewModel;
 import com.google.firebase.FirebaseApp;
@@ -58,8 +60,6 @@ import java.io.IOException;
 import java.util.UUID;
 
 public class CreatePostFragment extends Fragment {
-    private static final int REQUEST_IMAGE_CAPTURE = 1;
-    private static final int REQUEST_IMAGE_PICK = 2;
 
     private static final int PERMISSION_CODE = 1234;
     private static final int CAPTURE_CODE = 1001;
@@ -71,7 +71,6 @@ public class CreatePostFragment extends Fragment {
     StorageReference storageRef = storage.getReference();
     private ActivityResultLauncher<Intent> storagePermissionLauncher;
     private String imageUrll;
-    private FirebaseUser firebaseUser;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FirebaseApp.initializeApp(requireContext());
@@ -83,8 +82,14 @@ public class CreatePostFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentCreatePostBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
-
-        firebaseUser = auth.getCurrentUser();
+        PreferenceManager preferenceManager = new PreferenceManager(requireContext());
+        User user = preferenceManager.getUser();
+        if (user != null) {
+            binding.userFullName.setText(user.getFullName());
+            Glide.with(requireContext())
+                    .load(user.getAvatarUrl())
+                    .into(binding.userProfileImage);
+        }
 
         storagePermissionLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
@@ -115,7 +120,7 @@ public class CreatePostFragment extends Fragment {
         // Set up click listeners
 
         binding.chooseImage.setOnClickListener(v -> getProfileUploadLayout());
-
+binding.cancelBtn.setOnClickListener(v -> navigateToHomeFragment());
         binding.submitBtn.setOnClickListener(v -> createPost());
 
         // Observe the message live data for post creation status
@@ -231,14 +236,7 @@ public class CreatePostFragment extends Fragment {
         startActivityForResult(camIntent, CAPTURE_CODE);
     }
 
-//    private void dispatchCaptureIntent() {
-//        Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//        if (captureIntent.resolveActivity(requireContext().getPackageManager()) != null) {
-//            startActivityForResult(captureIntent, REQUEST_IMAGE_CAPTURE);
-//        } else {
-//            Log.e("CreatePostFragment", "No camera app found");
-//        }
-//    }
+
     private void getProfileFromGallery() {
         // Check read storage permission
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -247,11 +245,7 @@ public class CreatePostFragment extends Fragment {
 
 
 
-//    private void dispatchSelectIntent() {
-//        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//        intent.setType("image/*");
-//        startActivityForResult(intent, REQUEST_IMAGE_PICK);
-//    }
+
 @Override
 public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
     super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -292,88 +286,12 @@ public void onRequestPermissionsResult(int requestCode, @NonNull String[] permis
             return;
         }
 
-//
-//
-//        // Create a reference to the Firebase Storage bucket
-//        FirebaseStorage storage = FirebaseStorage.getInstance();
-//        StorageReference storageRef = storage.getReference();
-//
-//        // Create a reference to the image file in Firebase Storage
-//        String imageName = System.currentTimeMillis() + ".jpg";
-//        StorageReference imageRef = storageRef.child("images/" + imageName);
-//
-//        // Upload the image file to Firebase Storage
-//        UploadTask uploadTask = imageRef.putFile(Uri.fromFile(new File(selectedImagePath)));
-//
-//        // Register success and failure listeners for the upload task
-//        uploadTask.addOnSuccessListener(taskSnapshot -> {
-//            // Image upload successful
-//            Toast.makeText(requireContext(), "Image uploaded successfully", Toast.LENGTH_SHORT).show();
-//
-//            // Get the download URL of the uploaded image
-//            imageRef.getDownloadUrl().addOnSuccessListener(downloadUrl -> {
-//                // Use the download URL to create the post or save it to a database
-//                String imageUrl = downloadUrl.toString();
         String imageUrl=imageUrll;
 
                 // Call the createPost API with the image URL
                 postViewModel.createPost( token, title, imageUrl);
-//            }).addOnFailureListener(exception -> {
-//                // Error occurred while retrieving the download URL
-//                Toast.makeText(requireContext(), "Failed to retrieve download URL", Toast.LENGTH_SHORT).show();
-//            });
-//        }).addOnFailureListener(exception -> {
-//            // Image upload failed
-//            Toast.makeText(requireContext(), "Image upload failed", Toast.LENGTH_SHORT).show();
-//        });
+
     }
-//
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (resultCode == Activity.RESULT_OK) {
-//            if (requestCode == REQUEST_IMAGE_CAPTURE) {
-//                // Handle captured image
-//                Bitmap imageBitmap = (Bitmap) data.getExtras().get("data");
-//                // Save the image to a file or perform further processing
-//                Uri selectedImageUri = data.getData();
-//                selectedImagePath = selectedImageUri.getPath();
-//
-//            } else if (requestCode == REQUEST_IMAGE_PICK) {
-//                // Handle selected image
-//                Uri selectedImageUri = data.getData();
-//                if (selectedImageUri != null) {
-//                    try {
-//                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(requireContext().getContentResolver(), selectedImageUri);
-//                        // Save the image to a file or perform further processing
-//
-//                        // Update the selectedImagePath
-//                        selectedImagePath = selectedImageUri.getPath();
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            }
-//        }
-//    }
-//
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        if (requestCode == REQUEST_IMAGE_CAPTURE) {
-//            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                dispatchCaptureIntent();
-//            } else {
-//                Toast.makeText(requireContext(), "Camera permission denied", Toast.LENGTH_SHORT).show();
-//            }
-//        } else if (requestCode == REQUEST_IMAGE_PICK) {
-//            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                dispatchSelectIntent();
-//            } else {
-//                Toast.makeText(requireContext(), "Storage permission denied", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//    }
 
 
 }
