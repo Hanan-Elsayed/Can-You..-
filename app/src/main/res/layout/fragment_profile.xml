@@ -39,8 +39,38 @@
                 app:layout_constraintStart_toStartOf="parent"
 
                 />
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+android:text="@string/message"
+    android:textColor="@color/white"
+    android:textSize="@dimen/_13ssp"
+    android:textStyle="italic"
+    android:fontFamily="serif"
+    android:padding="@dimen/_10sdp"
 
-            <TextView
+    android:layout_marginStart="@dimen/_75sdp"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="@id/user_profile_image"
+    app:layout_constraintStart_toStartOf="@id/user_profile_image"
+    android:background="@drawable/button_background"/>
+             <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+android:text="@string/follow"
+    android:textColor="@color/white"
+    android:textSize="@dimen/_13ssp"
+    android:textStyle="italic"
+    android:fontFamily="serif"
+    android:layout_marginEnd="@dimen/_75sdp"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="@id/user_profile_image"
+    app:layout_constraintEnd_toEndOf="@id/user_profile_image"
+    android:background="@drawable/button_background"
+                 android:padding="@dimen/_10sdp"
+                 />
+
+             <TextView
                 android:id="@+id/user_full_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

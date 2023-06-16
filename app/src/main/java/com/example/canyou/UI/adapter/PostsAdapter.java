@@ -92,4 +92,5 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostViewHold
 
         }
     }
+
 }

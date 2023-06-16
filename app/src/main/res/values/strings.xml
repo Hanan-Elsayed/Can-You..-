@@ -72,6 +72,8 @@
 
     <!--    profile page-->
     <string name="follower">Follower </string>
+    <string name="follow">Follow </string>
+    <string name="message">Message </string>
     <string name="following">Following </string>
 
 

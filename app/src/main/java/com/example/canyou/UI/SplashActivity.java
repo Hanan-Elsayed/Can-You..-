@@ -37,7 +37,7 @@ new Handler()
                     changeActivity(LoginActivity.class);
                 }
             }
-        },1500);
+        },500);
 
     }
 
