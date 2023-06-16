@@ -137,6 +137,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 @Override
                 public void onClick(View v) {
                     changeFragment(new ProfileFragment());
+                    drawerLayout.closeDrawer(GravityCompat.START);
 
                 }
             });
@@ -144,6 +145,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 @Override
                 public void onClick(View v) {
                     changeFragment(new ProfileFragment());
+                    drawerLayout.closeDrawer(GravityCompat.START);
+
 
                 }
             });
