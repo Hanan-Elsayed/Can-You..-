@@ -70,5 +70,8 @@
 <!--    create post page-->
     <string name="choose_photo">Choose Image </string>
 
+<!--    profile page-->
+    <string name="follower">Follower </string>
+    <string name="following">Following </string>
 
 </resources>
