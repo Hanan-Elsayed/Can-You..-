@@ -67,11 +67,16 @@
     <string name="comment">Comments</string>
     <string name="enter_comment">Write a Comment</string>
 
-<!--    create post page-->
+    <!--    create post page-->
     <string name="choose_photo">Choose Image </string>
 
-<!--    profile page-->
+    <!--    profile page-->
     <string name="follower">Follower </string>
     <string name="following">Following </string>
+
+
+    <string name="search">Search in You Can .. </string>
+
+
 
 </resources>

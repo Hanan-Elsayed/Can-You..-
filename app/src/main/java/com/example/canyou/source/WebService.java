@@ -5,6 +5,7 @@ import com.example.canyou.pojo.CreatePostResponse;
 import com.example.canyou.pojo.LoginRequest;
 import com.example.canyou.pojo.LoginResponse;
 import com.example.canyou.pojo.PostResponseItem;
+import com.example.canyou.pojo.SearchResponseItem;
 import com.example.canyou.pojo.SignUpRequest;
 import com.example.canyou.pojo.SignUpResponse;
 import com.example.canyou.pojo.User;
@@ -17,6 +18,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Body;
 import retrofit2.Call;
 import retrofit2.http.PUT;
+import retrofit2.http.Query;
 
 public interface WebService {
 
@@ -34,4 +36,9 @@ public interface WebService {
     @POST("api/posts")
     Call<CreatePostResponse> createPost(@Header("Authorization") String token, @Body CreatePostRequest createPostRequest);
 
+    @GET("api/user/search")
+    Call<List<SearchResponseItem>> searchUsers(@Header("Authorization") String token, @Query("searchValue") String searchValue);
 }
+
+
+
