@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".UI.CommentsFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <Button
+        android:id="@+id/back_btn"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/baseline_arrow_back_24"
+        android:layout_marginBottom="@dimen/_5sdp"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/comments_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+        android:layout_height="wrap_content"
+app:layout_constraintTop_toBottomOf="@id/back_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/item_comment_layout" />
+<LinearLayout
+    android:id="@+id/create_comment_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    >
+    <EditText
+        android:id="@+id/enter_comment"
+        android:layout_width="@dimen/_255sdp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:fontFamily="serif"
+        android:textColor="@color/mid_gray"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="bold|italic"
+        android:layout_margin="@dimen/_5sdp"
+        android:hint="@string/enter_comment"
+        android:padding="@dimen/_5sdp"/>
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/add_comment"
+        android:layout_weight="1"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@android:color/transparent" />
+</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
