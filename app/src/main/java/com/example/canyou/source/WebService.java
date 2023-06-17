@@ -10,7 +10,7 @@ import com.example.canyou.pojo.PostResponseItem;
 import com.example.canyou.pojo.SearchResponseItem;
 import com.example.canyou.pojo.SignUpRequest;
 import com.example.canyou.pojo.SignUpResponse;
-import com.example.canyou.pojo.User;
+import com.example.canyou.pojo.UserResponse;
 
 import java.util.List;
 
@@ -40,8 +40,8 @@ public interface WebService {
     Call<List<PostResponseItem>> getPosts(@Header("Authorization") String token);
 
     @GET("api/posts/{userId}")
-    Call<User> getUserInformation(@Header("Authorization") String token,
-                                  @Path("userId") String userId);
+    Call<UserResponse> getUserInformation(@Header("Authorization") String token,
+                                          @Path("userId") String userId);
 
     @POST("api/posts")
     Call<CreatePostResponse> createPost(@Header("Authorization") String token, @Body CreatePostRequest createPostRequest);

@@ -15,8 +15,6 @@ import com.example.canyou.PreferenceManager;
 import com.example.canyou.databinding.FragmentProfileBinding;
 import com.example.canyou.viewmodel.ProfileViewModel;
 
-import java.util.Objects;
-
 public class ProfileFragment extends Fragment {
 
     private FragmentProfileBinding binding;
@@ -54,8 +52,8 @@ public class ProfileFragment extends Fragment {
                 Glide.with(requireContext())
                         .load(user.getAvatarUrl())
                         .into(binding.userProfileImage);
-                binding.textFollowingNumber.setText(Objects.requireNonNull(user.getFollowing()).size());
-                binding.textFollowerNumber.setText(Objects.requireNonNull(user.getFollowers()).size());
+                binding.textFollowingNumber.setText(user.getFollowing().size());
+                binding.textFollowerNumber.setText(user.getFollowers().size());
             });
 
         }

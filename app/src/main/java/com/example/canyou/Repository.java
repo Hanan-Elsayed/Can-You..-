@@ -1,7 +1,7 @@
 package com.example.canyou;
 
 import com.example.canyou.pojo.PostResponseItem;
-import com.example.canyou.pojo.User;
+import com.example.canyou.pojo.UserResponse;
 import com.example.canyou.source.RetrofitClient;
 import com.example.canyou.source.WebService;
 
@@ -26,10 +26,10 @@ public class Repository {
         call.enqueue(callback);
     }
 
-    public void getUserInformation(String token, String userId, Callback<User> callback) {
+    public void getUserInformation(String token, String userId, Callback<UserResponse> callback) {
         String authorizationHeader = "Bearer " + token;
         String id = userId;
-        Call<User> call = webService.getUserInformation(authorizationHeader, id);
+        Call<UserResponse> call = webService.getUserInformation(authorizationHeader, id);
         call.enqueue(callback);
     }
 }

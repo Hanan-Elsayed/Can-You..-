@@ -9,5 +9,5 @@ data class User(
     val following: List<Any?>? = listOf(),
     val fullName: String? = "",
     @SerializedName("_id")
-    val id: String? = ""
+    val id: String? = "user"
 )
