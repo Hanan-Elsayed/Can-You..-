@@ -14,6 +14,7 @@ import java.util.List;
 
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.Body;
 import retrofit2.Call;
@@ -28,7 +29,7 @@ public interface WebService {
     Call<SignUpResponse> registerUser(@Body SignUpRequest signUpRequest);
 
 
-    @PUT("avatar") //  for updating the user's avatar
+    @PATCH("api/user/img") //  for updating the user's avatar
     Call<AvatarResponse> updateUser(@Header("Authorization") String token, @Body User user);
 
 @GET("api/posts")
