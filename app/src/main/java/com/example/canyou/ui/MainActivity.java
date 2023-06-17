@@ -1,5 +1,13 @@
 package com.example.canyou.ui;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,21 +18,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
-
-import android.os.Bundle;
-
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.example.canyou.PreferenceManager;
 import com.example.canyou.R;
-import com.example.canyou.pojo.LoginResponse;
 import com.example.canyou.pojo.CurrentUser;
+import com.example.canyou.pojo.LoginResponse;
 import com.google.android.material.navigation.NavigationView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -34,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private DrawerLayout drawerLayout;
     LoginResponse loginResponse;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Get the shared preferences instance
         preferenceManager = new PreferenceManager(this);
 
-        Toolbar toolbar=findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -66,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction.addToBackStack(null); // This enables back navigation
         fragmentTransaction.commit();
     }
-
 
 
     @Override
@@ -116,7 +114,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
-    public void setUserImageAndNameWithClicksHandling(){
+
+    public void setUserImageAndNameWithClicksHandling() {
         CurrentUser currentUser = preferenceManager.getUser();
         if (currentUser != null) {
             NavigationView navigationView = findViewById(R.id.nav_view);
@@ -136,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             profileImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    changeFragment(new ProfileFragment());
+                    changeFragment(new MyProfileFragment());
                     drawerLayout.closeDrawer(GravityCompat.START);
 
                 }
@@ -146,25 +145,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 public void onClick(View v) {
                     changeFragment(new ProfileFragment());
                     drawerLayout.closeDrawer(GravityCompat.START);
-
-
                 }
             });
         }
 
 
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_search:
-               changeFragment(new SearchFragment());
+                changeFragment(new SearchFragment());
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

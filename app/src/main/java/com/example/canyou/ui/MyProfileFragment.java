@@ -14,24 +14,20 @@ import com.bumptech.glide.Glide;
 import com.example.canyou.PreferenceManager;
 import com.example.canyou.databinding.FragmentMyProfileBinding;
 import com.example.canyou.pojo.CurrentUser;
-import com.example.canyou.viewmodel.ProfileViewModel;
+import com.example.canyou.viewmodel.MyProfileViewModel;
 
 
 public class MyProfileFragment extends Fragment {
 
     private FragmentMyProfileBinding binding;
 
-    private ProfileViewModel viewModel;
-
-    public MyProfileFragment() {
-        viewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
-    }
+    private MyProfileViewModel viewModel;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        viewModel = new ViewModelProvider(this).get(MyProfileViewModel.class);
     }
 
     @Override

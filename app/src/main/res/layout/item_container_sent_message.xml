@@ -11,7 +11,8 @@
         android:padding="@dimen/_12sdp"
         android:textColor="@color/prim_clr"
         android:textSize="@dimen/_13ssp"
-        app:layout_constraintEnd_to_EndOf="parent"
-        app:layout_constraintTop_toTop0f="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintWidth_percent="0.8" />
 </androidx.constraintlayout.widget.ConstraintLayout>

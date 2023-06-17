@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".UI.MyProfileFragment">
+        tools:context=".ui.MyProfileFragment">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/user_card_view"

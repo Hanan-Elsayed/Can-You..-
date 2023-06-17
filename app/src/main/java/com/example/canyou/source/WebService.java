@@ -20,7 +20,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
-import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -32,12 +31,9 @@ public interface WebService {
     @POST("auth/register")
     Call<SignUpResponse> registerUser(@Body SignUpRequest signUpRequest);
 
-
-    @PUT("avatar")
+    @PATCH("api/user/img")
         //  for updating the user's avatar
-    Call<AvatarResponse> updateUser(@Header("Authorization") String token, @Body CurrentUser currentUser);
-    @PATCH("api/user/img") //  for updating the user's avatar
-    Call<AvatarResponse> updateUser(@Header("Authorization") String token, @Body User user);
+    Call<AvatarResponse> updateUser(@Header("Authorization") String token, @Body CurrentUser user);
 
     @GET("api/posts")
     Call<List<PostResponseItem>> getPosts(@Header("Authorization") String token);
