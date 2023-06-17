@@ -1,5 +1,4 @@
 package com.example.canyou.viewmodel;
-import android.widget.Toast;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -18,8 +17,7 @@ import retrofit2.Response;
 
 public class SearchViewModel extends ViewModel {
     private MutableLiveData<List<SearchResponseItem>> searchResults;
-    private MutableLiveData<String> messageLiveData=new MutableLiveData<>();
-
+    private MutableLiveData<String> messageLiveData = new MutableLiveData<>();
 
     public LiveData<List<SearchResponseItem>> getSearchResults() {
         if (searchResults == null) {
@@ -27,9 +25,11 @@ public class SearchViewModel extends ViewModel {
         }
         return searchResults;
     }
+
     public LiveData<String> getMessageLiveData() {
         return messageLiveData;
     }
+
     public void searchUsers(String token, String searchValue) {
         WebService webService = RetrofitClient.getService();
 

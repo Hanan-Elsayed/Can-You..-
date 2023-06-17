@@ -54,10 +54,10 @@ public class ProfileFragment extends Fragment {
                         .load(user.getAvatarUrl())
                         .into(binding.userProfileImage);
                 if (user.getFollowing() != null) {
-                    binding.textFollowingNumber.setText(user.getFollowing().size());
+                    binding.textFollowingNumber.setText(String.valueOf(user.getFollowing().size()));
                 }
                 if (user.getFollowers() != null) {
-                    binding.textFollowerNumber.setText(user.getFollowers().size());
+                    binding.textFollowerNumber.setText(String.valueOf(user.getFollowers().size()));
                 }
             });
 

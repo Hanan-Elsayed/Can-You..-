@@ -38,6 +38,9 @@ public class HomeFragment extends Fragment implements PostsAdapter.OnItemClick {
         postViewModel = new ViewModelProvider(this).get(PostViewModel.class);
         postsAdapter = new PostsAdapter();
         postsAdapter.setOnItemClick(this);
+        PreferenceManager preferenceManager = new PreferenceManager(requireContext());
+        String token = preferenceManager.getToken();
+        postViewModel.fetchPosts(token);
     }
 
     @Override
@@ -69,10 +72,7 @@ public class HomeFragment extends Fragment implements PostsAdapter.OnItemClick {
         });
         // Fetch posts when the fragment is created
         // Get the user token from SharedPreferences
-        PreferenceManager preferenceManager = new PreferenceManager(requireContext());
-        String token = preferenceManager.getToken();
 
-        postViewModel.fetchPosts(token);
         CardView createPostCV = view.findViewById(R.id.create_post_card_view);
         createPostCV.setOnClickListener(v -> navigateToCreatePostFragment());
     }

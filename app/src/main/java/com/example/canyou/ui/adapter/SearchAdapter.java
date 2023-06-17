@@ -1,4 +1,5 @@
 package com.example.canyou.ui.adapter;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import java.util.List;
 
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchViewHolder> {
     private List<SearchResponseItem> users;
+
+    private OnItemClick onItemClick;
 
     public SearchAdapter() {
         users = new ArrayList<>();
@@ -45,7 +48,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         return users.size();
     }
 
-    public static class SearchViewHolder extends RecyclerView.ViewHolder {
+    public class SearchViewHolder extends RecyclerView.ViewHolder {
         private ImageView userProfileImage;
         private TextView userFullName;
 
@@ -62,6 +65,21 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
                     .into(userProfileImage);
 
             userFullName.setText(user.getFullName());
+            userProfileImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onItemClick.onClick(user.getId());
+                }
+            });
         }
+    }
+
+
+    public void setOnItemClick(OnItemClick onItemClick) {
+        this.onItemClick = onItemClick;
+    }
+
+    public interface OnItemClick {
+        void onClick(String authorId);
     }
 }

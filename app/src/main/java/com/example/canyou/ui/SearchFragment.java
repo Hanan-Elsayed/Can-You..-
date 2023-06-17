@@ -1,4 +1,5 @@
 package com.example.canyou.ui;
+
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -11,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,13 +21,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.canyou.PreferenceManager;
 import com.example.canyou.R;
-import com.example.canyou.ui.adapter.SearchAdapter;
 import com.example.canyou.pojo.SearchResponseItem;
+import com.example.canyou.ui.adapter.SearchAdapter;
 import com.example.canyou.viewmodel.SearchViewModel;
 
 import java.util.List;
 
-public class SearchFragment extends Fragment {
+public class SearchFragment extends Fragment implements SearchAdapter.OnItemClick {
     private SearchViewModel searchViewModel;
     private SearchAdapter searchAdapter;
     private EditText searchEditText;
@@ -46,6 +49,7 @@ public class SearchFragment extends Fragment {
         searchEditText = view.findViewById(R.id.search_edit_text);
         RecyclerView searchRecyclerView = view.findViewById(R.id.search_recycler_view);
         searchAdapter = new SearchAdapter();
+        searchAdapter.setOnItemClick(this);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         searchRecyclerView.setLayoutManager(layoutManager);
@@ -98,4 +102,16 @@ public class SearchFragment extends Fragment {
         });
     }
 
+    @Override
+    public void onClick(String authorId) {
+        Bundle args = new Bundle();
+        args.putString("authorId", authorId);
+        ProfileFragment profileFragment = new ProfileFragment();
+        profileFragment.setArguments(args);
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, profileFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
 }
