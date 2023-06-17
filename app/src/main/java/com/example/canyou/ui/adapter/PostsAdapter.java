@@ -91,6 +91,15 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostViewHold
             binding.authorProfileImage.setOnClickListener(view -> {
                 onItemClick.onClick(author.getId());
             });
+            binding.likeCardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onItemClick.onLike(post.getId());
+                    int likes = Integer.parseInt(binding.likesCount.getText().toString());
+                    binding.likesCount.setText(String.valueOf(++likes));
+                }
+            });
+            binding.likesCount.setText(String.valueOf(post.getLikes().size()));
 
             Glide.with(itemView)
                     .load(post.getImgBody())
@@ -105,6 +114,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostViewHold
 
     public interface OnItemClick {
         void onClick(String authorId);
+
+        void onLike(String postId);
     }
 
 }

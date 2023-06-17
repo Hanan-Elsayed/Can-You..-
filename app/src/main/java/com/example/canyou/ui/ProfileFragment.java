@@ -59,6 +59,15 @@ public class ProfileFragment extends Fragment {
                 if (user.getFollowers() != null) {
                     binding.textFollowerNumber.setText(String.valueOf(user.getFollowers().size()));
                 }
+                binding.btnFollow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        viewModel.addFollow(token, user.getId());
+                        int followers = Integer.parseInt(binding.textFollowerNumber.getText().toString());
+                        binding.textFollowerNumber.setText(String.valueOf(++followers));
+                        binding.btnFollow.setClickable(false);
+                    }
+                });
             });
 
         }
