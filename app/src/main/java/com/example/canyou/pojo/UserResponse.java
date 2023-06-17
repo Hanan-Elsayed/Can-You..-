@@ -40,4 +40,24 @@ public class UserResponse {
     public String getId() {
         return id;
     }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
+    public void setFollowers(List<Object> followers) {
+        this.followers = followers;
+    }
+
+    public void setFollowing(List<Object> following) {
+        this.following = following;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }
