@@ -9,6 +9,14 @@ public class UserResponse {
     private String fullName;
     private String _id;
 
+    public UserResponse(String avatarUrl, List<Object> followers, List<Object> following, String fullName, String _id) {
+        AvatarUrl = avatarUrl;
+        this.followers = followers;
+        this.following = following;
+        this.fullName = fullName;
+        this._id = _id;
+    }
+
     public String getAvatarUrl() {
         return AvatarUrl;
     }
@@ -27,26 +35,6 @@ public class UserResponse {
 
     public String get_id() {
         return _id;
-    }
-
-    public void setAvatarUrl(String avatarUrl) {
-        this.AvatarUrl = avatarUrl;
-    }
-
-    public void setFollowers(List<Object> followers) {
-        this.followers = followers;
-    }
-
-    public void setFollowing(List<Object> following) {
-        this.following = following;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public void set_id(String _id) {
-        this._id = _id;
     }
 
     public String getData() {
