@@ -1,5 +1,7 @@
 package com.example.canyou.viewmodel;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -31,6 +33,7 @@ public class ProfileViewModel extends ViewModel {
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                 if (response.isSuccessful())
                     _profile.postValue(response.body());
+                Log.d("KAMEL", response.toString());
             }
 
             @Override
