@@ -33,10 +33,10 @@
                     android:id="@+id/user_profile_image"
                     android:layout_width="@dimen/_100sdp"
                     android:layout_height="@dimen/_100sdp"
-                    android:src="@drawable/defaultimage"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/defaultimage"
 
                     />
 
@@ -136,10 +136,10 @@
                                 android:layout_marginEnd="@dimen/_10sdp"
                                 android:layout_marginBottom="@dimen/_3sdp"
                                 android:fontFamily="serif"
-                                android:text="1"
                                 android:textColor="@color/mid_gray"
                                 android:textSize="@dimen/_10ssp"
-                                android:textStyle="bold|italic" />
+                                android:textStyle="bold|italic"
+                                tools:text="1" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
@@ -185,10 +185,10 @@
                                 android:layout_marginEnd="@dimen/_10sdp"
                                 android:layout_marginBottom="@dimen/_3sdp"
                                 android:fontFamily="serif"
-                                android:text="1"
                                 android:textColor="@color/mid_gray"
                                 android:textSize="@dimen/_10ssp"
-                                android:textStyle="bold|italic" />
+                                android:textStyle="bold|italic"
+                                tools:text="1" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
