@@ -50,7 +50,7 @@
 
     <color name="mid_gray">#706F6F</color>
     <color name="post_background">#EFEDED</color>
-    <color name="received_message">#E8D990</color>
+    <color name="received_message">#ECE3B4</color>
 
 
 </resources>
