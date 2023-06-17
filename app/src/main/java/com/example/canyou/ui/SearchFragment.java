@@ -1,4 +1,4 @@
-package com.example.canyou.UI;
+package com.example.canyou.ui;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.canyou.PreferenceManager;
 import com.example.canyou.R;
-import com.example.canyou.UI.adapter.SearchAdapter;
+import com.example.canyou.ui.adapter.SearchAdapter;
 import com.example.canyou.pojo.SearchResponseItem;
 import com.example.canyou.viewmodel.SearchViewModel;
 

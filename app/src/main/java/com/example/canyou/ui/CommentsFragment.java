@@ -1,4 +1,4 @@
-package com.example.canyou.UI;
+package com.example.canyou.ui;
 
 import android.os.Bundle;
 

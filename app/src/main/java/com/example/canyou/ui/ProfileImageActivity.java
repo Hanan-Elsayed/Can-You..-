@@ -1,4 +1,4 @@
-package com.example.canyou.UI;
+package com.example.canyou.ui;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -31,7 +31,6 @@ import android.provider.MediaStore;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -39,7 +38,7 @@ import com.example.canyou.PreferenceManager;
 import com.example.canyou.R;
 import com.example.canyou.databinding.ActivityProfileImageBinding;
 import com.example.canyou.pojo.AvatarResponse;
-import com.example.canyou.pojo.User;
+import com.example.canyou.pojo.CurrentUser;
 import com.example.canyou.source.RetrofitClient;
 import com.example.canyou.source.WebService;
 import com.google.firebase.FirebaseApp;
@@ -51,7 +50,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.UUID;
 
 public class ProfileImageActivity extends AppCompatActivity {
@@ -143,11 +141,11 @@ public class ProfileImageActivity extends AppCompatActivity {
         String token =preferenceManager.getToken();
 
         // Create a User object with the imageUrl
-        User user = new User();
+        CurrentUser currentUser = new CurrentUser();
         if (imageUrl != null) {
-            user.setAvatarUrl(imageUrl);
+            currentUser.setAvatarUrl(imageUrl);
         } else {
-            user.setAvatarUrl("https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375_960_720.png");
+            currentUser.setAvatarUrl("https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375_960_720.png");
         }
 
         // Create a Retrofit instance
@@ -157,7 +155,7 @@ public class ProfileImageActivity extends AppCompatActivity {
         WebService webService = retrofit.create(WebService.class);
 
         // Make the API call to update the user's avatar
-        Call<AvatarResponse> call = webService.updateUser("Bearer " + token, user);
+        Call<AvatarResponse> call = webService.updateUser("Bearer " + token, currentUser);
         call.enqueue(new Callback<AvatarResponse>() {
             @Override
             public void onResponse(Call<AvatarResponse> call, Response<AvatarResponse> response) {

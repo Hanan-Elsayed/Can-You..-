@@ -3,7 +3,7 @@ package com.example.canyou.pojo;
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 
-public class User{
+public class CurrentUser {
 
 	@SerializedName("AvatarUrl")
 	private String avatarUrl;
@@ -67,9 +67,9 @@ public class User{
 	}
 
 	// Create User object from JSON string
-	public static User fromJsonString(String jsonString) {
+	public static CurrentUser fromJsonString(String jsonString) {
 		Gson gson = new Gson();
-		return gson.fromJson(jsonString, User.class);
+		return gson.fromJson(jsonString, CurrentUser.class);
 	}
 
 }

@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".UI.SettingsFragment"
+        tools:context=".ui.SettingsFragment"
         android:orientation="vertical"
         android:background="@color/prim_clr">
 

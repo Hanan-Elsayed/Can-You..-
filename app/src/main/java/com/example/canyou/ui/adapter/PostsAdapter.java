@@ -1,4 +1,4 @@
-package com.example.canyou.UI.adapter;
+package com.example.canyou.ui.adapter;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
@@ -18,10 +18,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
 //adapter class to bind the posts data to the RecyclerView in the home fragment
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostViewHolder> {
     private List<PostResponseItem> posts;
+    private OnItemClick onItemClick;
 
+    @SuppressLint("NotifyDataSetChanged")
     public void setPosts(List<PostResponseItem> posts) {
         this.posts = posts;
         notifyDataSetChanged();
@@ -47,7 +50,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostViewHold
         return posts != null ? posts.size() : 0;
     }
 
-    static class PostViewHolder extends RecyclerView.ViewHolder {
+    class PostViewHolder extends RecyclerView.ViewHolder {
         private ItemPostLayoutBinding binding;
 
         public PostViewHolder(@NonNull View itemView) {
@@ -58,39 +61,51 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostViewHold
         public void bind(PostResponseItem post) {
             // Bind the post data to the views
             binding.postTitle.setText(post.getTitle());
+            post.getId();
             binding.likesCount.setText(String.valueOf(post.getLikes().size()));
             String originalDateString = post.getCreatedAt();
 
-        // Define the input format of the date string
-        SimpleDateFormat originalFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+            // Define the input format of the date string
+            SimpleDateFormat originalFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
 
-        // Define the desired output format
-        SimpleDateFormat outputFormat = new SimpleDateFormat("dd MMM yyyy, HH:mm");
+            // Define the desired output format
+            SimpleDateFormat outputFormat = new SimpleDateFormat("dd MMM yyyy, HH:mm");
 
-        try {
-            // Parse the original date string
-            Date originalDate = originalFormat.parse(originalDateString);
+            try {
+                // Parse the original date string
+                Date originalDate = originalFormat.parse(originalDateString);
 
-            // Format the date to the desired output format
-            String formattedDate = outputFormat.format(originalDate);
+                // Format the date to the desired output format
+                String formattedDate = outputFormat.format(originalDate);
 
-            // Display the formatted date
-            binding.postCreatedAt.setText(formattedDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+                // Display the formatted date
+                binding.postCreatedAt.setText(formattedDate);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             Author author = post.getAuthor();
             binding.authorFullName.setText(author.getFullName());
+            Glide.with(itemView)
+                    .load(author.getAvatarUrl())
+                    .into(binding.authorProfileImage);
+            binding.authorProfileImage.setOnClickListener(view -> {
+                onItemClick.onClick(author.getId());
+            });
 
-                    Glide.with(itemView)
-                .load(author.getAvatarUrl())
-                .into(binding.authorProfileImage);
 
-        Glide.with(itemView)
-                .load(post.getImgBody())
-                .into(binding.postImg);
+            Glide.with(itemView)
+                    .load(post.getImgBody())
+                    .into(binding.postImg);
 
         }
+    }
+
+    public void setOnItemClick(OnItemClick onItemClick) {
+        this.onItemClick = onItemClick;
+    }
+
+    public interface OnItemClick {
+        void onClick(String authorId);
     }
 
 }

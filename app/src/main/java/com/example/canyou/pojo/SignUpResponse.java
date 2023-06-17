@@ -5,17 +5,17 @@ import com.google.gson.annotations.SerializedName;
 public class SignUpResponse{
 
 	@SerializedName("user")
-	private User user;
+	private CurrentUser currentUser;
 
 	@SerializedName("token")
 	private String token;
 
-	public void setUser(User user){
-		this.user = user;
+	public void setUser(CurrentUser currentUser){
+		this.currentUser = currentUser;
 	}
 
-	public User getUser(){
-		return user;
+	public CurrentUser getUser(){
+		return currentUser;
 	}
 
 	public void setToken(String token){

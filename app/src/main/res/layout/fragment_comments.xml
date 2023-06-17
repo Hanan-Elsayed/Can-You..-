@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".UI.CommentsFragment">
+    tools:context=".ui.CommentsFragment">
     <Button
         android:id="@+id/back_btn"
         android:layout_width="@dimen/_20sdp"

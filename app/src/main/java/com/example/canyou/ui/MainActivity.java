@@ -1,4 +1,4 @@
-package com.example.canyou.UI;
+package com.example.canyou.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -24,7 +24,7 @@ import com.bumptech.glide.Glide;
 import com.example.canyou.PreferenceManager;
 import com.example.canyou.R;
 import com.example.canyou.pojo.LoginResponse;
-import com.example.canyou.pojo.User;
+import com.example.canyou.pojo.CurrentUser;
 import com.google.android.material.navigation.NavigationView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -65,8 +65,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.addToBackStack(null); // This enables back navigation
         fragmentTransaction.commit();
-
-
     }
 
 
@@ -119,8 +117,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
     public void setUserImageAndNameWithClicksHandling(){
-        User user = preferenceManager.getUser();
-        if (user != null) {
+        CurrentUser currentUser = preferenceManager.getUser();
+        if (currentUser != null) {
             NavigationView navigationView = findViewById(R.id.nav_view);
             View navHeaderView = navigationView.getHeaderView(0);
             CircleImageView profileImage = navHeaderView.findViewById(R.id.profile_image);
@@ -129,11 +127,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             // Set the user's profile image using the avatarUrl
             // use Glide library for image loading
             Glide.with(this)
-                    .load(user.getAvatarUrl())
+                    .load(currentUser.getAvatarUrl())
                     .into(profileImage);
 
             // Set the user's name
-            userName.setText(user.getFullName());
+            userName.setText(currentUser.getFullName());
 
             profileImage.setOnClickListener(new View.OnClickListener() {
                 @Override

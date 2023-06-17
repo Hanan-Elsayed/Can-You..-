@@ -1,10 +1,9 @@
-package com.example.canyou.UI;
+package com.example.canyou.ui;
 
 import static android.app.Activity.RESULT_OK;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -16,12 +15,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -31,32 +28,25 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
 import com.example.canyou.PreferenceManager;
 import com.example.canyou.R;
 import com.example.canyou.databinding.FragmentCreatePostBinding;
-import com.example.canyou.pojo.User;
+import com.example.canyou.pojo.CurrentUser;
 import com.example.canyou.viewmodel.CreatePostViewModel;
-import com.example.canyou.viewmodel.PostViewModel;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
 import java.util.UUID;
 
 public class CreatePostFragment extends Fragment {
@@ -83,11 +73,11 @@ public class CreatePostFragment extends Fragment {
         binding = FragmentCreatePostBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         PreferenceManager preferenceManager = new PreferenceManager(requireContext());
-        User user = preferenceManager.getUser();
-        if (user != null) {
-            binding.userFullName.setText(user.getFullName());
+        CurrentUser currentUser = preferenceManager.getUser();
+        if (currentUser != null) {
+            binding.userFullName.setText(currentUser.getFullName());
             Glide.with(requireContext())
-                    .load(user.getAvatarUrl())
+                    .load(currentUser.getAvatarUrl())
                     .into(binding.userProfileImage);
         }
 

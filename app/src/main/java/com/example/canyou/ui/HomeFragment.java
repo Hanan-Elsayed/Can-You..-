@@ -1,7 +1,10 @@
-package com.example.canyou.UI;
+package com.example.canyou.ui;
 
-import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,27 +14,20 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
 import com.example.canyou.PreferenceManager;
 import com.example.canyou.R;
-import com.example.canyou.UI.adapter.PostsAdapter;
 import com.example.canyou.databinding.FragmentHomeBinding;
 import com.example.canyou.pojo.PostResponseItem;
-import com.example.canyou.source.RetrofitClient;
+import com.example.canyou.ui.adapter.PostsAdapter;
 import com.example.canyou.viewmodel.PostViewModel;
 
 import java.util.List;
 
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements PostsAdapter.OnItemClick {
     private PostViewModel postViewModel;
     private RecyclerView recyclerView;
     private PostsAdapter postsAdapter;
@@ -41,6 +37,7 @@ public class HomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
         postViewModel = new ViewModelProvider(this).get(PostViewModel.class);
         postsAdapter = new PostsAdapter();
+        postsAdapter.setOnItemClick(this);
     }
 
     @Override
@@ -76,7 +73,7 @@ public class HomeFragment extends Fragment {
         String token = preferenceManager.getToken();
 
         postViewModel.fetchPosts(token);
-        CardView createPostCV =view.findViewById(R.id.create_post_card_view);
+        CardView createPostCV = view.findViewById(R.id.create_post_card_view);
         createPostCV.setOnClickListener(v -> navigateToCreatePostFragment());
     }
 
@@ -89,6 +86,18 @@ public class HomeFragment extends Fragment {
         fragmentTransaction.commit();
     }
 
+    @Override
+    public void onClick(String authorId) {
+        Bundle args = new Bundle();
+        args.putString("authorId", authorId);
+        ProfileFragment profileFragment = new ProfileFragment();
+        profileFragment.setArguments(args);
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, profileFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
 }
 
 

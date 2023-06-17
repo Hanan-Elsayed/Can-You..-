@@ -2,7 +2,7 @@ package com.example.canyou;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.canyou.pojo.User;
+import com.example.canyou.pojo.CurrentUser;
 
 public class PreferenceManager {
     private static final String PREF_NAME = "MyPreferences";
@@ -15,16 +15,16 @@ public class PreferenceManager {
         sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
     }
 
-    public void saveUser(User user) {
+    public void saveUser(CurrentUser currentUser) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(KEY_USER, user.toJsonString());
+        editor.putString(KEY_USER, currentUser.toJsonString());
         editor.apply();
     }
 
-    public User getUser() {
+    public CurrentUser getUser() {
         String userJson = sharedPreferences.getString(KEY_USER, null);
         if (userJson != null) {
-            return User.fromJsonString(userJson);
+            return CurrentUser.fromJsonString(userJson);
         }
         return null;
     }
