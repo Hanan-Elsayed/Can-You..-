@@ -22,6 +22,7 @@ import com.example.canyou.R;
 import com.example.canyou.databinding.FragmentHomeBinding;
 import com.example.canyou.pojo.PostResponseItem;
 import com.example.canyou.ui.adapter.PostsAdapter;
+import com.example.canyou.viewmodel.HomeViewModel;
 import com.example.canyou.viewmodel.PostViewModel;
 
 import java.util.List;
@@ -32,10 +33,13 @@ public class HomeFragment extends Fragment implements PostsAdapter.OnItemClick {
     private RecyclerView recyclerView;
     private PostsAdapter postsAdapter;
 
+    private HomeViewModel homeViewModel;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         postViewModel = new ViewModelProvider(this).get(PostViewModel.class);
+        homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         postsAdapter = new PostsAdapter();
         postsAdapter.setOnItemClick(this);
         PreferenceManager preferenceManager = new PreferenceManager(requireContext());
@@ -97,6 +101,16 @@ public class HomeFragment extends Fragment implements PostsAdapter.OnItemClick {
         fragmentTransaction.replace(R.id.fragment_container, profileFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onLike(String postId) {
+        PreferenceManager preferenceManager = new PreferenceManager(requireContext());
+        String token = preferenceManager.getToken();
+        homeViewModel.addLike(token, postId);
+        homeViewModel.getLike().observe(getViewLifecycleOwner(), like -> {
+
+        });
     }
 }
 

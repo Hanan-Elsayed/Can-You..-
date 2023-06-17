@@ -1,5 +1,6 @@
 package com.example.canyou;
 
+import com.example.canyou.pojo.LikeResponse;
 import com.example.canyou.pojo.PostResponseItem;
 import com.example.canyou.pojo.UserResponse;
 import com.example.canyou.source.RetrofitClient;
@@ -30,6 +31,13 @@ public class Repository {
         String authorizationHeader = "Bearer " + token;
         String id = userId;
         Call<UserResponse> call = webService.getUserInformation(authorizationHeader, id);
+        call.enqueue(callback);
+    }
+
+    public void addLike(String token, String postId, Callback<LikeResponse> callback){
+        String authorizationHeader = "Bearer " + token;
+        String id = postId;
+        Call<LikeResponse> call = webService.addLike(authorizationHeader, id);
         call.enqueue(callback);
     }
 }

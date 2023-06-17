@@ -4,6 +4,7 @@ import com.example.canyou.pojo.AvatarResponse;
 import com.example.canyou.pojo.CreatePostRequest;
 import com.example.canyou.pojo.CreatePostResponse;
 import com.example.canyou.pojo.CurrentUser;
+import com.example.canyou.pojo.LikeResponse;
 import com.example.canyou.pojo.LoginRequest;
 import com.example.canyou.pojo.LoginResponse;
 import com.example.canyou.pojo.PostResponseItem;
@@ -20,6 +21,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -41,6 +43,10 @@ public interface WebService {
     @GET("api/user/{userId}")
     Call<UserResponse> getUserInformation(@Header("Authorization") String token,
                                           @Path("userId") String userId);
+
+    @PUT("api/posts/post/{postId}/like")
+    Call<LikeResponse> addLike(@Header("Authorization") String token,
+                               @Path("postId") String postId);
 
     @POST("api/posts")
     Call<CreatePostResponse> createPost(@Header("Authorization") String token, @Body CreatePostRequest createPostRequest);

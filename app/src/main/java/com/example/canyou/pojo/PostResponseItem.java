@@ -1,70 +1,71 @@
 package com.example.canyou.pojo;
 
-import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class PostResponseItem{
+import java.util.List;
 
-	@SerializedName("createdAt")
-	private String createdAt;
+public class PostResponseItem {
 
-	@SerializedName("comments")
-	private List<Object> comments;
+    @SerializedName("createdAt")
+    private String createdAt;
 
-	@SerializedName("author")
-	private Author author;
+    @SerializedName("comments")
+    private List<Object> comments;
 
-	@SerializedName("__v")
-	private int v;
+    @SerializedName("author")
+    private Author author;
 
-	@SerializedName("_id")
-	private String id;
+    @SerializedName("__v")
+    private int v;
 
-	@SerializedName("title")
-	private String title;
+    @SerializedName("_id")
+    private String id;
 
-	@SerializedName("imgBody")
-	private String imgBody;
+    @SerializedName("title")
+    private String title;
 
-	@SerializedName("likes")
-	private List<Object> likes;
+    @SerializedName("imgBody")
+    private String imgBody;
 
-	@SerializedName("updatedAt")
-	private String updatedAt;
+    @SerializedName("likes")
+    private List<Object> likes;
 
-	public String getCreatedAt(){
-		return createdAt;
-	}
+    @SerializedName("updatedAt")
+    private String updatedAt;
 
-	public List<Object> getComments(){
-		return comments;
-	}
+    public String getCreatedAt() {
+        return createdAt;
+    }
 
-	public Author getAuthor(){
-		return author;
-	}
+    public List<Object> getComments() {
+        return comments;
+    }
 
-	public int getV(){
-		return v;
-	}
+    public Author getAuthor() {
+        return author;
+    }
 
-	public String getId(){
-		return id;
-	}
+    public int getV() {
+        return v;
+    }
 
-	public String getTitle(){
-		return title;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public String getImgBody(){
-		return imgBody;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public List<Object> getLikes(){
-		return likes;
-	}
+    public String getImgBody() {
+        return imgBody;
+    }
 
-	public String getUpdatedAt(){
-		return updatedAt;
-	}
+    public List<Object> getLikes() {
+        return likes;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
 }
