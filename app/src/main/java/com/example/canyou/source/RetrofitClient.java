@@ -5,7 +5,6 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public abstract class RetrofitClient {
@@ -20,7 +19,6 @@ public abstract class RetrofitClient {
                 .build();
         Retrofit retrofit = new Retrofit.Builder().
                 addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .baseUrl("https://canyou.onrender.com/")
                 .client(okHttpClient)
                 .build();

@@ -1,5 +1,6 @@
 package com.example.canyou;
 
+import com.example.canyou.pojo.CommentResponse;
 import com.example.canyou.pojo.FollowResponse;
 import com.example.canyou.pojo.LikeResponse;
 import com.example.canyou.pojo.PostResponseItem;
@@ -46,6 +47,13 @@ public class Repository {
         String authorizationHeader = "Bearer " + token;
         String id = userId;
         Call<FollowResponse> call = webService.addFollow(authorizationHeader, id);
+        call.enqueue(callback);
+    }
+
+    public void getComments(String token, String commentId, Callback<CommentResponse> callback) {
+        String authorizationHeader = "Bearer " + token;
+        String id = commentId;
+        Call<CommentResponse> call = webService.getComments(authorizationHeader, id);
         call.enqueue(callback);
     }
 }

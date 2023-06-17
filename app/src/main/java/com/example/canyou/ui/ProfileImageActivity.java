@@ -306,10 +306,10 @@ public class ProfileImageActivity extends AppCompatActivity {
         }
     }
 
-    @SuppressLint("MissingSuperCall")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (resultCode==RESULT_OK){
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
 
             binding.profileImage.setImageURI(imageUri);
             try {
