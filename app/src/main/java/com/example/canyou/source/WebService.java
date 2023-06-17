@@ -1,6 +1,7 @@
 package com.example.canyou.source;
 
 import com.example.canyou.pojo.AvatarResponse;
+import com.example.canyou.pojo.ChatResponse;
 import com.example.canyou.pojo.CommentResponse;
 import com.example.canyou.pojo.CreatePostRequest;
 import com.example.canyou.pojo.CreatePostResponse;
@@ -46,7 +47,9 @@ public interface WebService {
     Call<UserResponse> getUserInformation(@Header("Authorization") String token,
                                           @Path("userId") String userId);
 
-
+    @GET("api/chat//{userId}")
+    Call<ChatResponse> getUserItem(@Header("Authorization") String token,
+                                   @Path("userId") String userId);
     @GET("api/posts/post/{postId}/comments")
     Call<CommentResponse> getComments(@Header("Authorization") String token,
                                       @Path("postId") String commentId);
