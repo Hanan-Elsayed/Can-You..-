@@ -33,7 +33,7 @@ public class ProfileViewModel extends ViewModel {
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                 if (response.isSuccessful())
                     _profile.postValue(response.body());
-                Log.d("KAMEL", response.body().toString());
+                Log.d("KAMEL", response.body().getData().toString());
             }
 
             @Override

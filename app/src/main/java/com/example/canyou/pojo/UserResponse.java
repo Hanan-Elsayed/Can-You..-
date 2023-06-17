@@ -60,4 +60,8 @@ public class UserResponse {
     public void setId(String id) {
         this.id = id;
     }
+
+    public String getData() {
+        return getFullName() + getAvatarUrl() + getId();
+    }
 }
