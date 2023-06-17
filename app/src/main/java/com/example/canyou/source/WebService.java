@@ -4,6 +4,7 @@ import com.example.canyou.pojo.AvatarResponse;
 import com.example.canyou.pojo.CreatePostRequest;
 import com.example.canyou.pojo.CreatePostResponse;
 import com.example.canyou.pojo.CurrentUser;
+import com.example.canyou.pojo.FollowResponse;
 import com.example.canyou.pojo.LikeResponse;
 import com.example.canyou.pojo.LoginRequest;
 import com.example.canyou.pojo.LoginResponse;
@@ -47,6 +48,10 @@ public interface WebService {
     @PUT("api/posts/post/{postId}/like")
     Call<LikeResponse> addLike(@Header("Authorization") String token,
                                @Path("postId") String postId);
+
+    @PUT("api/user/follow/{userId}")
+    Call<FollowResponse> addFollow(@Header("Authorization") String token,
+                                   @Path("userId") String userId);
 
     @POST("api/posts")
     Call<CreatePostResponse> createPost(@Header("Authorization") String token, @Body CreatePostRequest createPostRequest);
