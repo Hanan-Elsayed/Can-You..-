@@ -92,7 +92,6 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.PostViewHold
                 onItemClick.onClick(author.getId());
             });
 
-
             Glide.with(itemView)
                     .load(post.getImgBody())
                     .into(binding.postImg);

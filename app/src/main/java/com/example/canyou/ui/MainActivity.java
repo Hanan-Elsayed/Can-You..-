@@ -75,9 +75,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_home:
                 changeFragment(new HomeFragment());
                 break;
-            case R.id.nav_chats:
-                changeFragment(new ChatsFragment());
-                break;
+
             case R.id.nav_settings:
                 changeFragment(new SettingsFragment());
                 break;

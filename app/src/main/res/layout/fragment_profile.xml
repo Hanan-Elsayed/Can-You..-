@@ -27,7 +27,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_10sdp">
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/user_profile_image"
@@ -209,29 +210,9 @@
 
             >
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/create_post"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
-                android:background="@color/Light_Gray"
-                android:fontFamily="serif"
-                android:padding="@dimen/_8sdp"
-                android:text="@string/Create_Post_ET"
-                android:textStyle="bold|italic"
-
-
-                />
-
-
         </androidx.cardview.widget.CardView>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/user_posts_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/create_post_card_view"
-            tools:listitem="@layout/item_post_layout" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
