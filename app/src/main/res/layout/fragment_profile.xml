@@ -81,7 +81,8 @@
                     android:textStyle="bold|italic"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/user_profile_image" />
+                    app:layout_constraintTop_toBottomOf="@id/user_profile_image"
+                    tools:text="Hannan" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
