@@ -18,6 +18,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
@@ -35,11 +36,13 @@ public interface WebService {
     @PUT("avatar")
         //  for updating the user's avatar
     Call<AvatarResponse> updateUser(@Header("Authorization") String token, @Body CurrentUser currentUser);
+    @PATCH("api/user/img") //  for updating the user's avatar
+    Call<AvatarResponse> updateUser(@Header("Authorization") String token, @Body User user);
 
     @GET("api/posts")
     Call<List<PostResponseItem>> getPosts(@Header("Authorization") String token);
 
-    @GET("api/posts/{userId}")
+    @GET("api/user/{userId}")
     Call<UserResponse> getUserInformation(@Header("Authorization") String token,
                                           @Path("userId") String userId);
 
