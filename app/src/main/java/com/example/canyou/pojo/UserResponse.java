@@ -2,27 +2,15 @@ package com.example.canyou.pojo;
 
 import java.util.List;
 
-import com.google.gson.annotations.SerializedName;
-
 public class UserResponse {
-
-    @SerializedName("AvatarUrl")
-    private String avatarUrl;
-
-    @SerializedName("followers")
+    private String AvatarUrl;
     private List<Object> followers;
-
-    @SerializedName("following")
     private List<Object> following;
-
-    @SerializedName("fullName")
     private String fullName;
-
-    @SerializedName("_id")
-    private String id;
+    private String _id;
 
     public String getAvatarUrl() {
-        return avatarUrl;
+        return AvatarUrl;
     }
 
     public List<Object> getFollowers() {
@@ -37,12 +25,12 @@ public class UserResponse {
         return fullName;
     }
 
-    public String getId() {
-        return id;
+    public String get_id() {
+        return _id;
     }
 
     public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
+        this.AvatarUrl = avatarUrl;
     }
 
     public void setFollowers(List<Object> followers) {
@@ -57,11 +45,11 @@ public class UserResponse {
         this.fullName = fullName;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getData() {
-        return getFullName() + getAvatarUrl() + getId();
+        return getFullName() + getAvatarUrl() + get_id();
     }
 }
