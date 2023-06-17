@@ -31,7 +31,7 @@ public interface WebService {
     @POST("auth/login")
     Call<LoginResponse> loginUser(@Body LoginRequest loginRequest);
 
-    @POST("auth/register")
+    @POST("auth/signUp")
     Call<SignUpResponse> registerUser(@Body SignUpRequest signUpRequest);
 
     @PATCH("api/user/img")
